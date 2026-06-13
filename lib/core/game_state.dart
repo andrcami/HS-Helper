@@ -72,6 +72,8 @@ class ConstructedState with _$ConstructedState {
     @Default(false) bool isPlayerTurn,
     @Default(false) bool heroPowerAvailable,
     @Default(0) int weaponAttack, // player's equipped weapon attack (0 = none)
+    @Default(false) bool isMulligan, // opening-hand mulligan phase
+    @Default(false) bool hasCoin, // I'm on the coin (going second)
   }) = _ConstructedState;
 
   factory ConstructedState.fromJson(Map<String, dynamic> json) =>

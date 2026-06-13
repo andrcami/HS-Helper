@@ -6,8 +6,18 @@ import '../../core/interfaces/log_source.dart';
 final _log = Logger();
 
 class WindowsLogWatcher implements LogSource {
-  WindowsLogWatcher({String? logPath})
+  WindowsLogWatcher({String? logPath, this.onTruncationFreeze})
       : _logPath = logPath ?? _defaultLogPath();
+
+  /// Fired when HS hits the 10MB cap and stops writing (the "Truncating log"
+  /// marker is the last line + no further writes). Only a HS restart recovers.
+  final void Function()? onTruncationFreeze;
+
+  // Set true after we read the truncation marker; if no new bytes arrive for a
+  // while afterward, we consider the log frozen and notify once.
+  bool _sawTruncateMarker = false;
+  bool _frozenNotified = false;
+  DateTime? _lastDataAt;
 
   static String _defaultLogPath() {
     const logsBase = r'C:\Program Files (x86)\Hearthstone\Logs';
@@ -37,8 +47,23 @@ class WindowsLogWatcher implements LogSource {
     _openOrWait();
     // HS opens a NEW dated session folder each launch. Periodically check for a
     // newer one and switch to it (handles relaunching HS while the app runs).
-    _sessionTimer =
-        Timer.periodic(const Duration(seconds: 10), (_) => _checkForNewerSession());
+    _sessionTimer = Timer.periodic(const Duration(seconds: 10), (_) {
+      _checkForNewerSession();
+      _checkTruncationFreeze();
+    });
+  }
+
+  /// Truncation freeze = saw the marker AND no new bytes for >20s. HS is open
+  /// but no longer writing; only a restart recovers. Notify the UI once.
+  void _checkTruncationFreeze() {
+    if (_frozenNotified || !_sawTruncateMarker) return;
+    final last = _lastDataAt;
+    if (last == null) return;
+    if (DateTime.now().difference(last).inSeconds >= 20) {
+      _frozenNotified = true;
+      _log.w('Power.log frozen after 10MB truncation — HS restart needed');
+      onTruncationFreeze?.call();
+    }
   }
 
   void _checkForNewerSession() {
@@ -49,6 +74,10 @@ class WindowsLogWatcher implements LogSource {
       _file = null;
       _logPath = newest;
       _timer?.cancel();
+      // Fresh session — clear the freeze state so a future truncation re-notifies.
+      _sawTruncateMarker = false;
+      _frozenNotified = false;
+      _lastDataAt = null;
       _openOrWait();
     }
   }
@@ -103,9 +132,15 @@ class WindowsLogWatcher implements LogSource {
       if (length > pos) {
         final bytes = raf.readSync(length - pos);
         final text = String.fromCharCodes(bytes);
+        _lastDataAt = DateTime.now();
         for (final line in text.split('\n')) {
           final trimmed = line.trim();
-          if (trimmed.isNotEmpty) _controller.add(trimmed);
+          if (trimmed.isEmpty) continue;
+          // HS writes this right before it freezes at the 10MB cap.
+          if (trimmed.contains('Truncating log')) {
+            _sawTruncateMarker = true;
+          }
+          _controller.add(trimmed);
         }
       }
     } catch (e) {

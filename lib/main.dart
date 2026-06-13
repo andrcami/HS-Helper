@@ -62,9 +62,15 @@ final collectionProvider =
 final deckStoreProvider =
     ChangeNotifierProvider<DeckStore>((ref) => DeckStore());
 
+/// True when HS hit the 10MB log cap and froze (needs a HS restart to recover).
+final logFrozenProvider = StateProvider<bool>((ref) => false);
+
 final gameStateProvider = StreamProvider<GameState>((ref) {
   if (!Platform.isWindows) return const Stream.empty();
-  final watcher = WindowsLogWatcher();
+  final watcher = WindowsLogWatcher(
+    onTruncationFreeze: () =>
+        ref.read(logFrozenProvider.notifier).state = true,
+  );
   final history = ref.read(historyProvider);
   final collection = ref.read(collectionProvider);
   final parser = PowerLogParser(
@@ -97,7 +103,21 @@ final recommendationsProvider = Provider<List<Recommendation>>((ref) {
   final cache = ref.watch(cacheManagerProvider);
   if (gameState == null) return [];
   return gameState.when(
-    constructed: (state) => ConstructedEngine(cache: cache).recommend(state),
+    constructed: (state) {
+      // Never let a sim/engine exception blank the overlay — log + degrade.
+      try {
+        final recs = ConstructedEngine(cache: cache).recommend(state);
+        if (recs.isEmpty) {
+          _log.i('No recs: isPlayerTurn=${state.isPlayerTurn} '
+              'hand=${state.hand.length} mana=${state.mana} '
+              'myMinions=${state.board.playerMinions.length}');
+        }
+        return recs;
+      } catch (e, st) {
+        _log.e('Recommendation engine threw', error: e, stackTrace: st);
+        return [];
+      }
+    },
     battlegrounds: (_) => [], // BGS uses bgsRecommendationsProvider (different type)
     idle: () => [],
   );
@@ -197,6 +217,7 @@ class _MainOverlayState extends ConsumerState<_MainOverlay> {
     final history = ref.watch(historyProvider);
     final collection = ref.watch(collectionProvider);
     final deckStore = ref.watch(deckStoreProvider);
+    final logFrozen = ref.watch(logFrozenProvider);
 
     final dashboard = Dashboard(
       stats: history.stats,
@@ -211,8 +232,12 @@ class _MainOverlayState extends ConsumerState<_MainOverlay> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: _hsRunning
-          ? OverlayContent(
+      body: Column(
+        children: [
+          if (logFrozen) const _LogFrozenBanner(),
+          Expanded(
+            child: _hsRunning
+                ? OverlayContent(
               recommendations: recs,
               isLoading: isLoading,
               logBuffer: logBuf,
@@ -222,12 +247,43 @@ class _MainOverlayState extends ConsumerState<_MainOverlay> {
               collectionSize: collection.uniqueCards,
               onRefresh: () => cache.refresh(),
             )
-          : SplashScreen(
-              cacheStatus: cache.status,
-              cacheMessage: cache.statusMessage,
-              dashboard: dashboard,
-              onRefresh: () => cache.refresh(),
+                : SplashScreen(
+                    cacheStatus: cache.status,
+                    cacheMessage: cache.statusMessage,
+                    dashboard: dashboard,
+                    onRefresh: () => cache.refresh(),
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Red banner shown when HS froze its log at the 10MB cap. Only a HS restart
+/// fixes it — the app can't recover stale data on its own.
+class _LogFrozenBanner extends StatelessWidget {
+  const _LogFrozenBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.red.shade900,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      child: const Row(
+        children: [
+          Icon(Icons.warning_amber_rounded, color: Colors.white, size: 16),
+          SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              'Hearthstone log hit its 10MB cap and stopped. '
+              'Restart Hearthstone to resume tracking.',
+              style: TextStyle(color: Colors.white, fontSize: 11),
             ),
+          ),
+        ],
+      ),
     );
   }
 }

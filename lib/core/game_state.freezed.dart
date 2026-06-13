@@ -1017,7 +1017,11 @@ mixin _$ConstructedState {
   int get turn => throw _privateConstructorUsedError;
   bool get isPlayerTurn => throw _privateConstructorUsedError;
   bool get heroPowerAvailable => throw _privateConstructorUsedError;
-  int get weaponAttack => throw _privateConstructorUsedError;
+  int get weaponAttack =>
+      throw _privateConstructorUsedError; // player's equipped weapon attack (0 = none)
+  bool get isMulligan =>
+      throw _privateConstructorUsedError; // opening-hand mulligan phase
+  bool get hasCoin => throw _privateConstructorUsedError;
 
   /// Serializes this ConstructedState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1047,6 +1051,8 @@ abstract class $ConstructedStateCopyWith<$Res> {
     bool isPlayerTurn,
     bool heroPowerAvailable,
     int weaponAttack,
+    bool isMulligan,
+    bool hasCoin,
   });
 
   $BoardCopyWith<$Res> get board;
@@ -1077,6 +1083,8 @@ class _$ConstructedStateCopyWithImpl<$Res, $Val extends ConstructedState>
     Object? isPlayerTurn = null,
     Object? heroPowerAvailable = null,
     Object? weaponAttack = null,
+    Object? isMulligan = null,
+    Object? hasCoin = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1120,6 +1128,14 @@ class _$ConstructedStateCopyWithImpl<$Res, $Val extends ConstructedState>
                 ? _value.weaponAttack
                 : weaponAttack // ignore: cast_nullable_to_non_nullable
                       as int,
+            isMulligan: null == isMulligan
+                ? _value.isMulligan
+                : isMulligan // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            hasCoin: null == hasCoin
+                ? _value.hasCoin
+                : hasCoin // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -1156,6 +1172,8 @@ abstract class _$$ConstructedStateImplCopyWith<$Res>
     bool isPlayerTurn,
     bool heroPowerAvailable,
     int weaponAttack,
+    bool isMulligan,
+    bool hasCoin,
   });
 
   @override
@@ -1186,6 +1204,8 @@ class __$$ConstructedStateImplCopyWithImpl<$Res>
     Object? isPlayerTurn = null,
     Object? heroPowerAvailable = null,
     Object? weaponAttack = null,
+    Object? isMulligan = null,
+    Object? hasCoin = null,
   }) {
     return _then(
       _$ConstructedStateImpl(
@@ -1229,6 +1249,14 @@ class __$$ConstructedStateImplCopyWithImpl<$Res>
             ? _value.weaponAttack
             : weaponAttack // ignore: cast_nullable_to_non_nullable
                   as int,
+        isMulligan: null == isMulligan
+            ? _value.isMulligan
+            : isMulligan // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        hasCoin: null == hasCoin
+            ? _value.hasCoin
+            : hasCoin // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -1248,6 +1276,8 @@ class _$ConstructedStateImpl implements _ConstructedState {
     this.isPlayerTurn = false,
     this.heroPowerAvailable = false,
     this.weaponAttack = 0,
+    this.isMulligan = false,
+    this.hasCoin = false,
   }) : _hand = hand;
 
   factory _$ConstructedStateImpl.fromJson(Map<String, dynamic> json) =>
@@ -1282,10 +1312,18 @@ class _$ConstructedStateImpl implements _ConstructedState {
   @override
   @JsonKey()
   final int weaponAttack;
+  // player's equipped weapon attack (0 = none)
+  @override
+  @JsonKey()
+  final bool isMulligan;
+  // opening-hand mulligan phase
+  @override
+  @JsonKey()
+  final bool hasCoin;
 
   @override
   String toString() {
-    return 'ConstructedState(playerClass: $playerClass, format: $format, hand: $hand, board: $board, mana: $mana, maxMana: $maxMana, turn: $turn, isPlayerTurn: $isPlayerTurn, heroPowerAvailable: $heroPowerAvailable, weaponAttack: $weaponAttack)';
+    return 'ConstructedState(playerClass: $playerClass, format: $format, hand: $hand, board: $board, mana: $mana, maxMana: $maxMana, turn: $turn, isPlayerTurn: $isPlayerTurn, heroPowerAvailable: $heroPowerAvailable, weaponAttack: $weaponAttack, isMulligan: $isMulligan, hasCoin: $hasCoin)';
   }
 
   @override
@@ -1306,7 +1344,10 @@ class _$ConstructedStateImpl implements _ConstructedState {
             (identical(other.heroPowerAvailable, heroPowerAvailable) ||
                 other.heroPowerAvailable == heroPowerAvailable) &&
             (identical(other.weaponAttack, weaponAttack) ||
-                other.weaponAttack == weaponAttack));
+                other.weaponAttack == weaponAttack) &&
+            (identical(other.isMulligan, isMulligan) ||
+                other.isMulligan == isMulligan) &&
+            (identical(other.hasCoin, hasCoin) || other.hasCoin == hasCoin));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1323,6 +1364,8 @@ class _$ConstructedStateImpl implements _ConstructedState {
     isPlayerTurn,
     heroPowerAvailable,
     weaponAttack,
+    isMulligan,
+    hasCoin,
   );
 
   /// Create a copy of ConstructedState
@@ -1354,6 +1397,8 @@ abstract class _ConstructedState implements ConstructedState {
     final bool isPlayerTurn,
     final bool heroPowerAvailable,
     final int weaponAttack,
+    final bool isMulligan,
+    final bool hasCoin,
   }) = _$ConstructedStateImpl;
 
   factory _ConstructedState.fromJson(Map<String, dynamic> json) =
@@ -1378,7 +1423,11 @@ abstract class _ConstructedState implements ConstructedState {
   @override
   bool get heroPowerAvailable;
   @override
-  int get weaponAttack;
+  int get weaponAttack; // player's equipped weapon attack (0 = none)
+  @override
+  bool get isMulligan; // opening-hand mulligan phase
+  @override
+  bool get hasCoin;
 
   /// Create a copy of ConstructedState
   /// with the given fields replaced by the non-null parameter values.

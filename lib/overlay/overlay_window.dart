@@ -80,28 +80,45 @@ class SplashScreen extends StatelessWidget {
           ),
           child: Row(
             children: [
-              const Icon(Icons.sports_esports_rounded, size: 22, color: Colors.amber),
-              const SizedBox(width: 10),
-              const Text(
-                'HS Helper',
-                style: TextStyle(
-                  color: Colors.amber,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
+              const Icon(Icons.sports_esports_rounded, size: 18, color: Colors.amber),
+              const SizedBox(width: 6),
+              // Title + status share the flexible middle so nothing overflows
+              // the narrow 340px overlay.
+              Expanded(
+                child: Row(
+                  children: [
+                    const Flexible(
+                      child: Text(
+                        'HS Helper',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Colors.amber,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    const Icon(Icons.circle, size: 6, color: Colors.orange),
+                    const SizedBox(width: 4),
+                    const Flexible(
+                      child: Text('Waiting…',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(color: Colors.orange, fontSize: 11)),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: 12),
-              const Icon(Icons.circle, size: 7, color: Colors.orange),
-              const SizedBox(width: 5),
-              const Text('Waiting for Hearthstone',
-                  style: TextStyle(color: Colors.orange, fontSize: 11)),
-              const Spacer(),
               if (cacheStatus != CacheStatus.idle)
                 CacheStatusBar(status: cacheStatus, message: cacheMessage),
-              const SizedBox(width: 8),
-              TextButton.icon(
+              // Icon-only refresh — label dropped to fit.
+              IconButton(
                 onPressed: loading ? null : onRefresh,
+                tooltip: loading ? 'Updating…' : 'Update card DB',
+                iconSize: 16,
+                constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                padding: EdgeInsets.zero,
                 icon: loading
                     ? const SizedBox(
                         width: 14,
@@ -110,10 +127,6 @@ class SplashScreen extends StatelessWidget {
                             strokeWidth: 2, color: Colors.amber),
                       )
                     : const Icon(Icons.refresh, size: 16, color: Colors.white54),
-                label: Text(
-                  loading ? 'Updating…' : 'Update DB',
-                  style: const TextStyle(color: Colors.white54, fontSize: 12),
-                ),
               ),
             ],
           ),

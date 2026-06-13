@@ -66,6 +66,12 @@ class PowerLogParser {
   int _maxMana = 0;
   int _turn = 0;
   bool _isPlayerTurn = false;
+  // True once CURRENT_PLAYER mapped to a real PlayerID at least once. Until then
+  // the mana-refresh fallback drives _isPlayerTurn (mid-session watcher start).
+  bool _currentPlayerMapped = false;
+  // Mulligan phase: game STEP=BEGIN_MULLIGAN → ends at first MAIN_* step.
+  bool _isMulligan = false;
+  bool _hasCoin = false; // local player is on the coin (going second)
   String _playerClass = 'UNKNOWN';
 
   // Local player's controller id. Discovered from cards revealed in hand.
@@ -90,6 +96,9 @@ class PowerLogParser {
   // Game completion marker.
   static final _gameComplete =
       RegExp(r'Entity=GameEntity tag=STATE value=COMPLETE');
+  // Game STEP changes — used to bound the mulligan phase.
+  static final _gameStep =
+      RegExp(r'Entity=GameEntity tag=(?:NEXT_)?STEP value=(\w+)');
 
   // Any bracketed entity: [entityName=NAME ... id=N ... zone=ZONE zonePos=P cardId=X player=P]
   // entityName may itself contain "[cardType=INVALID]" so name capture is greedy-lazy up to " id=".
@@ -162,11 +171,22 @@ class PowerLogParser {
       final pid = _nameToPlayer[name];
       if (pid != null && pid == _localPlayerId) {
         if (tag == 'RESOURCES') {
+          // A rise in my max mana = a new crystal = the start of MY turn.
+          // Fallback turn signal for when CURRENT_PLAYER never mapped (e.g. the
+          // watcher started mid-session and missed the "Player EntityID" line,
+          // leaving _entityToPlayer empty — see _entityToPlayer note).
+          if (value > _maxMana && !_currentPlayerMapped) {
+            _isPlayerTurn = true;
+          }
           _maxMana = value;
         } else {
           _mana = _maxMana - value; // RESOURCES_USED → remaining mana
         }
         return _buildState();
+      } else if (pid != null && pid != _localPlayerId && tag == 'RESOURCES') {
+        // Opponent's mana refreshed → their turn (only trust as a fallback when
+        // CURRENT_PLAYER never gave us a real mapping).
+        if (!_currentPlayerMapped) _isPlayerTurn = false;
       }
     }
 
@@ -190,6 +210,32 @@ class PowerLogParser {
     }
 
     bool changed = false;
+
+    // Mulligan phase boundary. BEGIN_MULLIGAN → opening-hand decisions; the
+    // first MAIN_* step ends it (game proper starts).
+    final step = _gameStep.firstMatch(line);
+    if (step != null) {
+      final v = step.group(1)!;
+      if (v == 'BEGIN_MULLIGAN') {
+        if (!_isMulligan) {
+          changed = true;
+          _log.i('Mulligan phase START (coin=$_hasCoin)');
+        }
+        _isMulligan = true;
+      } else if (v.startsWith('MAIN')) {
+        if (_isMulligan) changed = true;
+        _isMulligan = false;
+      }
+    }
+
+    // Coin = local player going second. THE COIN (GAME_005) entering my hand.
+    if (_isMulligan && line.contains('cardId=GAME_005')) {
+      final m = _bracket.firstMatch(line);
+      if (m != null && int.tryParse(m.group(6)!) == _localPlayerId) {
+        if (!_hasCoin) changed = true;
+        _hasCoin = true;
+      }
+    }
 
     // Parse every bracketed entity — name, zone, zonePos, player all inline.
     for (final m in _bracket.allMatches(line)) {
@@ -253,12 +299,16 @@ class PowerLogParser {
           // turn if that entity maps to my PlayerID.
           if (value == '1') {
             final pid = _entityToPlayer[id];
-            final nowMyTurn = pid != null && pid == _localPlayerId;
-            if (nowMyTurn && !_isPlayerTurn) {
-              _lastHeroPowerUsed = _heroPowerUsedThisGame; // snapshot turn start
+            if (pid != null) {
+              _currentPlayerMapped = true; // real signal — overrides fallback
+              final nowMyTurn = pid == _localPlayerId;
+              if (nowMyTurn && !_isPlayerTurn) {
+                _lastHeroPowerUsed =
+                    _heroPowerUsedThisGame; // snapshot turn start
+              }
+              _isPlayerTurn = nowMyTurn;
+              changed = true;
             }
-            _isPlayerTurn = nowMyTurn;
-            changed = true;
           }
           break;
         // Board minion stats
@@ -416,6 +466,8 @@ class PowerLogParser {
       isPlayerTurn: _isPlayerTurn,
       heroPowerAvailable: _isPlayerTurn && _heroPowerUsedThisGame == _lastHeroPowerUsed,
       weaponAttack: weapon.id == -1 ? 0 : weapon.atk,
+      isMulligan: _isMulligan,
+      hasCoin: _hasCoin,
     ));
   }
 
@@ -456,5 +508,9 @@ class PowerLogParser {
     _lastHeroPowerUsed = 0;
     _nameToPlayer.clear();
     _entityToPlayer.clear();
+    _isPlayerTurn = false;
+    _currentPlayerMapped = false;
+    _isMulligan = false;
+    _hasCoin = false;
   }
 }

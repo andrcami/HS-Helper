@@ -10,6 +10,8 @@ class RecommendationCard extends StatelessWidget {
   Color get _scoreColor {
     if (rec.isLethal) return Colors.red;
     if (rec.type == ActionType.endTurn) return Colors.blueGrey;
+    if (rec.type == ActionType.mulliganKeep) return Colors.green;
+    if (rec.type == ActionType.mulliganToss) return Colors.orange;
     if (rec.score >= 0.7) return Colors.green;
     if (rec.score >= 0.4) return Colors.yellow;
     return Colors.red.shade300;
@@ -20,6 +22,8 @@ class RecommendationCard extends StatelessWidget {
         ActionType.heroPower => Icons.auto_awesome,
         ActionType.attack => Icons.gps_fixed,
         ActionType.endTurn => Icons.skip_next,
+        ActionType.mulliganKeep => Icons.check_circle,
+        ActionType.mulliganToss => Icons.cancel,
       };
 
   @override

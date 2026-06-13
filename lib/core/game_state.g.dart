@@ -119,6 +119,8 @@ _$ConstructedStateImpl _$$ConstructedStateImplFromJson(
   isPlayerTurn: json['isPlayerTurn'] as bool? ?? false,
   heroPowerAvailable: json['heroPowerAvailable'] as bool? ?? false,
   weaponAttack: (json['weaponAttack'] as num?)?.toInt() ?? 0,
+  isMulligan: json['isMulligan'] as bool? ?? false,
+  hasCoin: json['hasCoin'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$$ConstructedStateImplToJson(
@@ -134,6 +136,8 @@ Map<String, dynamic> _$$ConstructedStateImplToJson(
   'isPlayerTurn': instance.isPlayerTurn,
   'heroPowerAvailable': instance.heroPowerAvailable,
   'weaponAttack': instance.weaponAttack,
+  'isMulligan': instance.isMulligan,
+  'hasCoin': instance.hasCoin,
 };
 
 const _$ConstructedFormatEnumMap = {

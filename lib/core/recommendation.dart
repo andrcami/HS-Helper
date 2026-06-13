@@ -1,7 +1,7 @@
 import 'game_state.dart';
 
 /// The kind of turn action being recommended.
-enum ActionType { playCard, heroPower, attack, endTurn }
+enum ActionType { playCard, heroPower, attack, endTurn, mulliganKeep, mulliganToss }
 
 /// A ranked next-step recommendation. Covers all turn actions, not just cards.
 class Recommendation {
@@ -87,6 +87,22 @@ class Recommendation {
         score: 0.0,
         reason: reason,
         title: 'End Turn',
+      );
+
+  /// Mulligan: keep (score high) or toss (score low) an opening-hand card.
+  factory Recommendation.mulligan(
+    CardInHand card, {
+    required double score,
+    required String reason,
+    required bool keep,
+  }) =>
+      Recommendation(
+        type: keep ? ActionType.mulliganKeep : ActionType.mulliganToss,
+        score: score,
+        reason: reason,
+        title: '${keep ? 'KEEP' : 'TOSS'} ${card.name}',
+        subtitle: '${card.cost} mana',
+        card: card,
       );
 }
 

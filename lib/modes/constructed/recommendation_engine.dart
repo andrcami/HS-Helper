@@ -17,6 +17,9 @@ class ConstructedEngine {
   double get _personalWeight => (personalGames / 200.0).clamp(0.0, 0.3);
 
   List<Recommendation> recommend(ConstructedState state) {
+    // Opening-hand mulligan — keep/toss advice per card.
+    if (state.isMulligan) return _mulligan(state);
+
     // Only advise on your own turn.
     if (!state.isPlayerTurn) return const [];
 
@@ -60,6 +63,81 @@ class ConstructedEngine {
     }
 
     return top;
+  }
+
+  // ---- Mulligan (opening hand keep/toss) -------------------------------------
+
+  /// Scores each opening-hand card for keep vs toss. Core idea: early-game
+  /// curve wins games — keep cheap cards, toss expensive ones. On the coin you
+  /// can keep one slot higher. Removal / cheap minions / card draw bias toward
+  /// keep; winrate nudges when known.
+  List<Recommendation> _mulligan(ConstructedState state) {
+    // The coin lets you keep one mana-slot higher (extra mana turn 1).
+    final keepCeiling = state.hasCoin ? 4 : 3;
+
+    final recs = <Recommendation>[];
+    for (final card in state.hand) {
+      // The Coin itself: always implicitly kept, don't advise on it.
+      if (card.cardId == 'GAME_005') continue;
+
+      final h = _hints(card);
+      double keepScore;
+      final reasons = <String>[];
+
+      // Base on cost curve.
+      if (card.cost <= 1) {
+        keepScore = 0.85;
+        reasons.add('cheap (${card.cost})');
+      } else if (card.cost <= keepCeiling) {
+        keepScore = 0.7 - (card.cost - 1) * 0.08;
+        reasons.add('on-curve (${card.cost})');
+      } else {
+        keepScore = 0.3 - (card.cost - keepCeiling) * 0.05;
+        reasons.add('expensive (${card.cost})');
+      }
+
+      // Effect adjustments.
+      if (h.isRemoval || h.damage > 0) {
+        keepScore += 0.12;
+        reasons.add('removal');
+      }
+      if (h.drawCount > 0) {
+        keepScore += 0.08;
+        reasons.add('draws');
+      }
+      if (card.type == CardType.minion && card.cost >= 2 && card.cost <= keepCeiling) {
+        keepScore += 0.05; // early board body
+      }
+      // Big expensive battlecry/value cards: extra toss bias early.
+      if (card.cost > keepCeiling && (h.buffsBoard || card.type == CardType.spell)) {
+        keepScore -= 0.05;
+      }
+
+      // Winrate nudge when known.
+      final wr = cache.winrate(card.cardId);
+      if (wr != null) {
+        keepScore += (wr.winrate - 0.5) * 0.3;
+        reasons.add('${(wr.winrate * 100).toStringAsFixed(0)}% WR');
+      }
+
+      keepScore = keepScore.clamp(0.0, 1.0);
+      final keep = keepScore >= 0.5;
+      recs.add(Recommendation.mulligan(
+        card,
+        score: keep ? keepScore : (1 - keepScore),
+        reason: reasons.join(' · '),
+        keep: keep,
+      ));
+    }
+
+    // Keeps first (highest score), then tosses. Show all opening-hand cards.
+    recs.sort((a, b) {
+      final ak = a.type == ActionType.mulliganKeep ? 1 : 0;
+      final bk = b.type == ActionType.mulliganKeep ? 1 : 0;
+      if (ak != bk) return bk - ak;
+      return b.score.compareTo(a.score);
+    });
+    return recs;
   }
 
   // ---- Attacks (planner-driven multi-attack line) ----------------------------

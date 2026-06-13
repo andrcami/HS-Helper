@@ -1,11 +1,11 @@
 # Graph Report - C:\dev-Projects\HS-Helper\lib  (2026-06-13)
 
 ## Corpus Check
-- 30 files · ~38,948 words
+- 30 files · ~40,388 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 277 nodes · 305 edges · 19 communities detected
+- 282 nodes · 310 edges · 19 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -53,19 +53,19 @@ Nodes (35): add, clear, LogBuffer, CacheManager, Duration, _loadCardDb, _persist
 
 ### Community 1 - "Community 1"
 Cohesion: 0.07
-Nodes (28): build, CacheStatusBar, Column, Container, dispose, Divider, _EmptyState, _EmptyStateState (+20 more)
+Nodes (29): build, CacheStatusBar, Column, Container, dispose, Divider, _EmptyState, _EmptyStateState (+21 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.08
-Nodes (22): board_eval.dart, AttackPlan, AttackPlanner, AttackStep, plan, search, BoardEval, _keywordValue (+14 more)
+Nodes (25): build, _CardDbCard, _ClassWinRateCard, Column, Container, Dashboard, _DeckRow, _DeckShelfCard (+17 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.08
-Nodes (24): build, _CardDbCard, _ClassWinRateCard, Column, Container, Dashboard, _DeckRow, _DeckShelfCard (+16 more)
+Nodes (24): build, _checkHs, Container, dispose, HsHelperApp, initState, _isHearthstoneRunning, _LogFrozenBanner (+16 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.08
-Nodes (23): build, _checkHs, dispose, HsHelperApp, initState, _isHearthstoneRunning, main, _MainOverlay (+15 more)
+Nodes (22): board_eval.dart, AttackPlan, AttackPlanner, AttackStep, plan, search, BoardEval, _keywordValue (+14 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.09
@@ -80,12 +80,12 @@ Cohesion: 0.11
 Nodes (16): BgsEngine, _buyReason, _buyScore, _rollReason, _rollScore, _shouldFreeze, _tribalMultiplier, _upgradeReason (+8 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.15
-Nodes (12): _boardPressure, _cardReason, _cardScore, ConstructedEngine, _contextMultiplier, _hints, _manaEfficiency, _swingToScore (+4 more)
+Cohesion: 0.13
+Nodes (14): _beginTailing, _checkForNewerSession, _checkTruncationFreeze, _defaultLogPath, dispose, Function, _openOrWait, _poll (+6 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.15
-Nodes (12): _beginTailing, _checkForNewerSession, _defaultLogPath, dispose, _openOrWait, _poll, _pollUntilExists, _reopen (+4 more)
+Nodes (12): _boardPressure, _cardReason, _cardScore, ConstructedEngine, _contextMultiplier, _hints, _manaEfficiency, _swingToScore (+4 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.18
@@ -124,7 +124,7 @@ Cohesion: 1.0
 Nodes (0): 
 
 ## Knowledge Gaps
-- **229 isolated node(s):** `HsHelperApp`, `_MainOverlay`, `_MainOverlayState`, `main`, `build` (+224 more)
+- **234 isolated node(s):** `HsHelperApp`, `_MainOverlay`, `_MainOverlayState`, `_LogFrozenBanner`, `main` (+229 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **Thin community `Community 17`** (2 nodes): `hero_class.dart`, `heroClassFromCardId`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -134,14 +134,14 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `../../data/cache_manager.dart` connect `Community 10` to `Community 1`, `Community 3`, `Community 4`, `Community 5`, `Community 7`, `Community 8`?**
-  _High betweenness centrality (0.273) - this node is a cross-community bridge._
-- **Why does `package:logger/logger.dart` connect `Community 5` to `Community 0`, `Community 9`, `Community 4`?**
-  _High betweenness centrality (0.177) - this node is a cross-community bridge._
-- **Why does `sim_models.dart` connect `Community 2` to `Community 10`?**
-  _High betweenness centrality (0.134) - this node is a cross-community bridge._
+- **Why does `../../data/cache_manager.dart` connect `Community 10` to `Community 1`, `Community 2`, `Community 3`, `Community 5`, `Community 7`, `Community 9`?**
+  _High betweenness centrality (0.272) - this node is a cross-community bridge._
+- **Why does `package:logger/logger.dart` connect `Community 5` to `Community 0`, `Community 8`, `Community 3`?**
+  _High betweenness centrality (0.181) - this node is a cross-community bridge._
+- **Why does `sim_models.dart` connect `Community 4` to `Community 10`?**
+  _High betweenness centrality (0.132) - this node is a cross-community bridge._
 - **What connects `HsHelperApp`, `_MainOverlay`, `_MainOverlayState` to the rest of the system?**
-  _229 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _234 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.06 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

@@ -3,6 +3,7 @@ import '../../core/recommendation.dart';
 import '../../core/sim/board_eval.dart';
 import '../../core/sim/keyword_parser.dart';
 import '../../core/sim/attack_planner.dart';
+import '../../core/sim/card_effects.dart';
 import '../../data/cache_manager.dart';
 
 /// Produces ranked next-step recommendations for a constructed turn — covering
@@ -108,24 +109,90 @@ class ConstructedEngine {
     return (swing / 12.0 + 0.5).clamp(0.05, 0.95);
   }
 
-  // ---- Card scoring (unchanged heuristic) ------------------------------------
+  // ---- Card scoring (effect + context aware) ---------------------------------
+
+  CardEffectHints _hints(CardInHand card) {
+    final meta = cache.card(card.cardId);
+    return CardEffectHints.parse(meta?.text ?? '', meta?.mechanics ?? const []);
+  }
 
   double _cardScore(CardInHand card, ConstructedState state) {
+    // Base: winrate if known, else tempo by mana fill + rarity.
+    double base;
     final wr = cache.winrate(card.cardId);
     if (wr != null) {
-      final base = wr.winrate;
-      final blended = base * (1 - _personalWeight) + base * _personalWeight;
-      return (blended * _manaEfficiency(card, state) * _boardPressure(card, state))
-          .clamp(0.0, 1.0);
+      final b = wr.winrate;
+      base = b * (1 - _personalWeight) + b * _personalWeight;
+    } else {
+      final rarityBonus = switch (card.rarity) {
+        Rarity.legendary => 0.10,
+        Rarity.epic => 0.05,
+        Rarity.rare => 0.02,
+        Rarity.common => 0.0,
+      };
+      base = 0.5 + 0.3 * _manaEfficiency(card, state) + rarityBonus;
     }
-    final rarityBonus = switch (card.rarity) {
-      Rarity.legendary => 0.10,
-      Rarity.epic => 0.05,
-      Rarity.rare => 0.02,
-      Rarity.common => 0.0,
-    };
-    final tempo = 0.5 + 0.4 * _manaEfficiency(card, state) + rarityBonus;
-    return (tempo * _boardPressure(card, state)).clamp(0.0, 1.0);
+
+    // Context multiplier from the card's likely effect vs the board.
+    final ctx = _contextMultiplier(card, state);
+    return (base * ctx).clamp(0.0, 1.0);
+  }
+
+  /// >1 when the card's effect is well-matched to the current board, <1 when
+  /// it's a dead/weak play (e.g. AOE into empty board, buff with no minions).
+  double _contextMultiplier(CardInHand card, ConstructedState state) {
+    final h = _hints(card);
+    if (!h.hasAnyEffect) return _boardPressure(card, state);
+
+    final oppMinions = state.board.opponentMinions;
+    final myMinions = state.board.playerMinions;
+    double m = 1.0;
+
+    // Removal / single-target damage: great if it kills something.
+    if (h.isRemoval || (h.damage > 0 && !h.isAoe)) {
+      final killable = oppMinions.where((e) => e.health <= h.damage || h.isRemoval);
+      if (killable.isNotEmpty) {
+        // Bigger reward for removing a bigger threat.
+        final biggest = oppMinions.fold<int>(
+            0, (mx, e) => e.attack > mx ? e.attack : mx);
+        m *= 1.25 + (biggest * 0.04);
+      } else if (h.damage > 0) {
+        m *= 0.85; // no target — only reach value
+      }
+    }
+
+    // AOE: scales with enemy board width; penalize if it clears my own wider board.
+    if (h.isAoe && h.damage > 0) {
+      final enemyHit = oppMinions.where((e) => e.health <= h.damage).length;
+      if (enemyHit >= 2) {
+        m *= 1.3 + 0.15 * (enemyHit - 2);
+      } else if (oppMinions.isEmpty) {
+        m *= 0.4; // dead AOE
+      }
+      if (h.hitsAllMinions) {
+        final mineHit = myMinions.where((e) => e.health <= h.damage).length;
+        if (mineHit > enemyHit) m *= 0.7; // hurts me more
+      }
+    }
+
+    // Buff: wants friendly minions on board.
+    if ((h.buffAttack > 0 || h.buffHealth > 0) && h.buffsBoard) {
+      m *= myMinions.isEmpty ? 0.45 : (1.15 + 0.08 * myMinions.length);
+    }
+
+    // Heal: valuable when I've taken damage.
+    if (h.heal > 0 || h.armor > 0) {
+      final missing = 30 - state.board.playerHp;
+      m *= missing >= h.heal ? 1.15 : (missing <= 2 ? 0.7 : 1.0);
+    }
+
+    // Card draw: mild steady value.
+    if (h.drawCount > 0) m *= 1.05;
+
+    // Taunt minion when behind on board.
+    if (h.givesTaunt && oppMinions.length > myMinions.length) m *= 1.15;
+
+    return m.clamp(0.3, 2.0);
   }
 
   double _manaEfficiency(CardInHand card, ConstructedState state) {
@@ -142,15 +209,29 @@ class ConstructedEngine {
   }
 
   String _cardReason(CardInHand card, ConstructedState state) {
+    final h = _hints(card);
     final wr = cache.winrate(card.cardId);
     final parts = <String>[];
-    if (wr != null) parts.add('${(wr.winrate * 100).toStringAsFixed(1)}% WR');
+
+    // Lead with the effect-context insight when there is one.
+    final oppMinions = state.board.opponentMinions;
+    final myMinions = state.board.playerMinions;
+    if (h.isAoe && h.damage > 0 && oppMinions.where((e) => e.health <= h.damage).length >= 2) {
+      parts.add('AOE clears ${oppMinions.where((e) => e.health <= h.damage).length}');
+    } else if ((h.isRemoval || h.damage > 0) &&
+        oppMinions.any((e) => e.health <= h.damage || h.isRemoval)) {
+      parts.add('removes a threat');
+    } else if ((h.buffAttack > 0 || h.buffHealth > 0) && h.buffsBoard && myMinions.isNotEmpty) {
+      parts.add('buffs your board');
+    } else if (h.heal > 0 && state.board.playerHp < 30) {
+      parts.add('heals ${h.heal}');
+    } else if (h.drawCount > 0) {
+      parts.add('draws ${h.drawCount}');
+    }
+
+    if (wr != null) parts.add('${(wr.winrate * 100).toStringAsFixed(0)}% WR');
     parts.add('${card.cost} mana');
     if (card.cost > 0 && card.cost == state.mana) parts.add('fills curve');
-    if (card.mechanics.contains('TAUNT') &&
-        state.board.opponentMinions.length > 2) {
-      parts.add('taunt vs board');
-    }
     return parts.join(' · ');
   }
 }

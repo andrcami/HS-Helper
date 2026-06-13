@@ -1,9 +1,8 @@
 import '../../core/game_state.dart';
 import '../../core/recommendation.dart';
-import '../../core/sim/sim_models.dart';
-import '../../core/sim/combat.dart';
 import '../../core/sim/board_eval.dart';
 import '../../core/sim/keyword_parser.dart';
+import '../../core/sim/attack_planner.dart';
 import '../../data/cache_manager.dart';
 
 /// Produces ranked next-step recommendations for a constructed turn — covering
@@ -22,9 +21,10 @@ class ConstructedEngine {
 
     final recs = <Recommendation>[];
 
-    // 1. Lethal check across all attackers (board + weapon/hero).
-    final lethal = _lethalCheck(state);
-    if (lethal != null) recs.add(lethal);
+    // 1. Attack plan — search the best full-turn attack line (order matters).
+    //    Covers lethal (a line that drops the opponent to 0).
+    final attackRec = _plannedAttack(state);
+    if (attackRec != null) recs.add(attackRec);
 
     // 2. Play cards.
     for (final card in state.hand) {
@@ -36,9 +36,6 @@ class ConstructedEngine {
         isLethal: false,
       ));
     }
-
-    // 3. Attacks (each ready minion → best target).
-    recs.addAll(_attackActions(state));
 
     // 4. Hero power (if available + affordable).
     if (state.heroPowerAvailable && state.mana >= 2) {
@@ -64,128 +61,51 @@ class ConstructedEngine {
     return top;
   }
 
-  // ---- Lethal ----------------------------------------------------------------
+  // ---- Attacks (planner-driven multi-attack line) ----------------------------
 
-  Recommendation? _lethalCheck(ConstructedState state) {
-    final oppHp = state.board.opponentHp;
-    if (oppHp <= 0) return null;
-    // Opponent un-stealthed taunts block face damage — no simple lethal.
-    final hasTaunt = state.board.opponentMinions
-        .any((m) => m.hasTaunt && !m.hasStealth);
-    if (hasTaunt) return null;
+  /// Searches the best full-turn attack SEQUENCE (order matters: clear a blocker
+  /// before it trades back, pop taunt before face, etc). Returns one attack
+  /// recommendation = the FIRST step of the best line, carrying the whole plan.
+  Recommendation? _plannedAttack(ConstructedState state) {
+    final base = KeywordParser(cache).fromState(state);
+    // No ready attackers → nothing to plan.
+    final anyReady = base.playerMinions
+        .any((m) => m.alive && m.attack > 0 && m.canAttack);
+    if (!anyReady) return null;
 
-    // Sum of attack from minions that can actually hit FACE this turn + weapon.
-    final readyAttack = state.board.playerMinions
-        .where((m) => m.canAttackFace)
-        .fold<int>(0, (sum, m) => sum + m.attack);
-    final total = readyAttack + state.weaponAttack;
+    final plan = AttackPlanner.plan(base);
+    if (plan.isEmpty) return null;
 
-    if (total >= oppHp) {
+    final first = plan.first!;
+    final steps =
+        plan.steps.map((s) => '${s.attackerLabel} → ${s.targetLabel}').toList();
+
+    if (plan.isLethal) {
       return Recommendation.attack(
         score: 1.0,
-        reason: 'LETHAL — $total damage vs $oppHp HP',
-        attackerLabel: 'All attackers',
-        targetLabel: 'enemy hero',
+        reason: 'LETHAL — ${plan.steps.length}-attack line',
+        attackerLabel: first.attackerLabel,
+        targetLabel: first.targetLabel,
         isLethal: true,
+        planSteps: steps,
       );
     }
-    return null;
-  }
 
-  // ---- Attacks (simulation-driven) -------------------------------------------
-
-  /// For each of my ready attackers, simulate every legal attack (face + each
-  /// enemy minion, respecting taunts) and keep the highest board-value swing.
-  /// The keyword combat sim handles divine shield, poison, lifesteal, windfury,
-  /// reborn, taunt — so trades reflect real keyword interactions.
-  List<Recommendation> _attackActions(ConstructedState state) {
-    final out = <Recommendation>[];
-    final parser = KeywordParser(cache);
-    final base = parser.fromState(state);
-
-    // Legal targets: stealthed minions can't be attacked. A stealthed taunt
-    // therefore does NOT force targeting (it's untargetable).
-    bool attackable(SimMinion m) => m.alive && !m.has(Keyword.stealth);
-
-    final tauntIdx = <int>[
-      for (var j = 0; j < base.opponentMinions.length; j++)
-        if (base.opponentMinions[j].has(Keyword.taunt) &&
-            attackable(base.opponentMinions[j]))
-          j
-    ];
-    final taunts = tauntIdx.map((j) => base.opponentMinions[j]).toList();
-    final targetIdx = tauntIdx.isNotEmpty
-        ? tauntIdx
-        : [
-            for (var j = 0; j < base.opponentMinions.length; j++)
-              if (attackable(base.opponentMinions[j])) j
-          ];
-
-    for (var i = 0; i < base.playerMinions.length; i++) {
-      final attacker = base.playerMinions[i];
-      if (attacker.attack <= 0 || !attacker.canAttack) continue;
-
-      Recommendation? best;
-      double bestSwing = -1e9;
-
-      // Candidate: attack each legal minion target (matched by index in clone).
-      for (final tIdx in targetIdx) {
-        final target = base.opponentMinions[tIdx];
-        final sim = base.clone();
-        Combat.minionAttacksMinion(
-            sim, sim.playerMinions[i], sim.opponentMinions[tIdx]);
-        final swing = BoardEval.swing(base, sim);
-        if (swing > bestSwing) {
-          bestSwing = swing;
-          best = Recommendation.attack(
-            score: _swingToScore(swing),
-            reason: _tradeReason(attacker, target),
-            attackerLabel:
-                '${attacker.name} (${attacker.attack}/${attacker.health})',
-            targetLabel: '${target.name} (${target.attack}/${target.health})',
-          );
-        }
-      }
-
-      // Candidate: go face (legal if no taunts AND this minion may hit face —
-      // a rush minion played this turn can't go face).
-      if (taunts.isEmpty && attacker.canAttackFace) {
-        final sim = base.clone();
-        Combat.minionAttacksHero(sim, sim.playerMinions[i]);
-        final swing = BoardEval.swing(base, sim);
-        if (swing > bestSwing) {
-          bestSwing = swing;
-          best = Recommendation.attack(
-            score: _swingToScore(swing),
-            reason: '${attacker.attack} damage to face',
-            attackerLabel:
-                '${attacker.name} (${attacker.attack}/${attacker.health})',
-            targetLabel: 'enemy hero',
-          );
-        }
-      }
-
-      if (best != null) out.add(best);
-    }
-    return out;
+    final reason = plan.steps.length > 1
+        ? 'Best line (${plan.steps.length} attacks)'
+        : (first.toFace ? 'Go face' : 'Trade');
+    return Recommendation.attack(
+      score: _swingToScore(plan.finalScore - BoardEval.score(base)),
+      reason: reason,
+      attackerLabel: first.attackerLabel,
+      targetLabel: first.targetLabel,
+      planSteps: steps,
+    );
   }
 
   double _swingToScore(double swing) {
-    // Map board swing (roughly -10..+15) to 0..0.95.
-    final s = (swing / 12.0 + 0.5).clamp(0.05, 0.95);
-    return s;
-  }
-
-  String _tradeReason(SimMinion attacker, SimMinion target) {
-    final kills = attacker.attack >= target.health ||
-        attacker.has(Keyword.poisonous);
-    final survives = target.attack < attacker.health &&
-        !target.has(Keyword.poisonous);
-    final ds = target.has(Keyword.divineShield);
-    if (ds) return 'Pops Divine Shield on ${target.name}';
-    if (kills && survives) return 'Clean kill, minion survives';
-    if (kills) return 'Trade into ${target.name}';
-    return 'Chip ${attacker.attack} into ${target.name}';
+    // Map board swing (roughly -10..+15) to 0.05..0.95.
+    return (swing / 12.0 + 0.5).clamp(0.05, 0.95);
   }
 
   // ---- Card scoring (unchanged heuristic) ------------------------------------

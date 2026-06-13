@@ -9,7 +9,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "main.dart"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_hshelperapp",
-      "community": 5,
+      "community": 4,
       "norm_label": "hshelperapp"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_mainoverlay",
-      "community": 5,
+      "community": 4,
       "norm_label": "_mainoverlay"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_mainoverlaystate",
-      "community": 5,
+      "community": 4,
       "norm_label": "_mainoverlaystate"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_main",
-      "community": 5,
+      "community": 4,
       "norm_label": "main"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_build",
-      "community": 5,
+      "community": 4,
       "norm_label": "build"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_materialapp",
-      "community": 5,
+      "community": 4,
       "norm_label": "materialapp"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_initstate",
-      "community": 5,
+      "community": 4,
       "norm_label": "initstate"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_dispose",
-      "community": 5,
+      "community": 4,
       "norm_label": "dispose"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_checkhs",
-      "community": 5,
+      "community": 4,
       "norm_label": "_checkhs"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_ishearthstonerunning",
-      "community": 5,
+      "community": 4,
       "norm_label": "_ishearthstonerunning"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_main_dart_scaffold",
-      "community": 5,
+      "community": 4,
       "norm_label": "scaffold"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "package_flutter_material_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "package:flutter/material.dart"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "package_hooks_riverpod_hooks_riverpod_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "package:hooks_riverpod/hooks_riverpod.dart"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "package_logger_logger_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "package:logger/logger.dart"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\overlay_window.dart",
       "source_location": null,
       "id": "package_window_manager_window_manager_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "package:window_manager/window_manager.dart"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "core_game_state_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "../../core/game_state.dart"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\overlay_window.dart",
       "source_location": null,
       "id": "core_log_buffer_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "../core/log_buffer.dart"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "core_recommendation_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "../core/recommendation.dart"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "data_cache_manager_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "../../data/cache_manager.dart"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "data_collection_store_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "../data/collection_store.dart"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "data_deck_store_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "../data/deck_store.dart"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "data_history_store_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "data/history_store.dart"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "modes_constructed_recommendation_engine_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "modes/constructed/recommendation_engine.dart"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "overlay_dashboard_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "overlay/dashboard.dart"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "overlay_overlay_window_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "overlay/overlay_window.dart"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "platform_windows_log_watcher_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "platform/windows/log_watcher.dart"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\main.dart",
       "source_location": null,
       "id": "platform_windows_power_log_parser_dart",
-      "community": 5,
+      "community": 4,
       "norm_label": "platform/windows/power_log_parser.dart"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_deckstring_dart",
-      "community": 0,
+      "community": 10,
       "norm_label": "deckstring.dart"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_deckstring_dart_decodeddeck",
-      "community": 0,
+      "community": 10,
       "norm_label": "decodeddeck"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_deckstring_dart_deckstring",
-      "community": 0,
+      "community": 10,
       "norm_label": "deckstring"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_deckstring_dart_varreader",
-      "community": 0,
+      "community": 10,
       "norm_label": "_varreader"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_deckstring_dart_byte",
-      "community": 0,
+      "community": 10,
       "norm_label": "byte"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_deckstring_dart_varint",
-      "community": 0,
+      "community": 10,
       "norm_label": "varint"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\deckstring.dart",
       "source_location": null,
       "id": "dart_typed_data",
-      "community": 0,
+      "community": 10,
       "norm_label": "dart:typed_data"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_record.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_record_dart",
-      "community": 13,
+      "community": 14,
       "norm_label": "game_record.dart"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_record.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_record_dart_gamerecord",
-      "community": 13,
+      "community": 14,
       "norm_label": "gamerecord"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_record.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_record_dart_historystats",
-      "community": 13,
+      "community": 14,
       "norm_label": "historystats"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart",
-      "community": 6,
+      "community": 7,
       "norm_label": "_"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_cardinhand",
-      "community": 6,
+      "community": 7,
       "norm_label": "_cardinhand"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_miniononboard",
-      "community": 6,
+      "community": 7,
       "norm_label": "_miniononboard"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_board",
-      "community": 6,
+      "community": 7,
       "norm_label": "_board"
     },
     {
@@ -486,7 +486,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_constructedstate",
-      "community": 6,
+      "community": 7,
       "norm_label": "_constructedstate"
     },
     {
@@ -495,7 +495,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_bgsminion",
-      "community": 6,
+      "community": 7,
       "norm_label": "_bgsminion"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_bgsstate",
-      "community": 6,
+      "community": 7,
       "norm_label": "_bgsstate"
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_constructedgamestate",
-      "community": 6,
+      "community": 7,
       "norm_label": "constructedgamestate"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_battlegroundsgamestate",
-      "community": 6,
+      "community": 7,
       "norm_label": "battlegroundsgamestate"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_idlegamestate",
-      "community": 6,
+      "community": 7,
       "norm_label": "idlegamestate"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_then",
-      "community": 6,
+      "community": 7,
       "norm_label": "_then"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_equalunmodifiablelistview",
-      "community": 6,
+      "community": 7,
       "norm_label": "equalunmodifiablelistview"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_tostring",
-      "community": 6,
+      "community": 7,
       "norm_label": "tostring"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_identical",
-      "community": 6,
+      "community": 7,
       "norm_label": "identical"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_deepcollectionequality",
-      "community": 6,
+      "community": 7,
       "norm_label": "deepcollectionequality"
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_checkedfromjsonexception",
-      "community": 6,
+      "community": 7,
       "norm_label": "checkedfromjsonexception"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_function",
-      "community": 6,
+      "community": 7,
       "norm_label": "function"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_orelse",
-      "community": 6,
+      "community": 7,
       "norm_label": "orelse"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_constructed",
-      "community": 6,
+      "community": 7,
       "norm_label": "constructed"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_battlegrounds",
-      "community": 6,
+      "community": 7,
       "norm_label": "battlegrounds"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_freezed_dart_idle",
-      "community": 6,
+      "community": 7,
       "norm_label": "idle"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\game_state.g.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_game_state_g_dart",
-      "community": 16,
+      "community": 17,
       "norm_label": "game_state.g.dart"
     },
     {
@@ -648,7 +648,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\hero_class.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_hero_class_dart",
-      "community": 15,
+      "community": 16,
       "norm_label": "hero_class.dart"
     },
     {
@@ -657,7 +657,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\hero_class.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_hero_class_dart_heroclassfromcardid",
-      "community": 15,
+      "community": 16,
       "norm_label": "heroclassfromcardid"
     },
     {
@@ -747,7 +747,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\recommendation.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_recommendation_freezed_dart",
-      "community": 12,
+      "community": 13,
       "norm_label": "_"
     },
     {
@@ -756,7 +756,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\recommendation.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_recommendation_freezed_dart_bgsrecommendation",
-      "community": 12,
+      "community": 13,
       "norm_label": "_bgsrecommendation"
     },
     {
@@ -765,7 +765,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\recommendation.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_recommendation_freezed_dart_then",
-      "community": 12,
+      "community": 13,
       "norm_label": "_then"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\recommendation.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_recommendation_freezed_dart_tostring",
-      "community": 12,
+      "community": 13,
       "norm_label": "tostring"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\recommendation.freezed.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_recommendation_freezed_dart_identical",
-      "community": 12,
+      "community": 13,
       "norm_label": "identical"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\interfaces\\log_source.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_interfaces_log_source_dart",
-      "community": 14,
+      "community": 15,
       "norm_label": "log_source.dart"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\interfaces\\log_source.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_interfaces_log_source_dart_logsource",
-      "community": 14,
+      "community": 15,
       "norm_label": "logsource"
     },
     {
@@ -810,8 +810,89 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\interfaces\\log_source.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_interfaces_log_source_dart_dispose",
-      "community": 14,
+      "community": 15,
       "norm_label": "dispose"
+    },
+    {
+      "label": "attack_planner.dart",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "community": 2,
+      "norm_label": "attack_planner.dart"
+    },
+    {
+      "label": "AttackStep",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackstep",
+      "community": 2,
+      "norm_label": "attackstep"
+    },
+    {
+      "label": "AttackPlan",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackplan",
+      "community": 2,
+      "norm_label": "attackplan"
+    },
+    {
+      "label": "AttackPlanner",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackplanner",
+      "community": 2,
+      "norm_label": "attackplanner"
+    },
+    {
+      "label": "plan",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_plan",
+      "community": 2,
+      "norm_label": "plan"
+    },
+    {
+      "label": "search",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_search",
+      "community": 2,
+      "norm_label": "search"
+    },
+    {
+      "label": "sim_models.dart",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
+      "source_location": null,
+      "id": "sim_models_dart",
+      "community": 2,
+      "norm_label": "sim_models.dart"
+    },
+    {
+      "label": "combat.dart",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "combat_dart",
+      "community": 2,
+      "norm_label": "combat.dart"
+    },
+    {
+      "label": "board_eval.dart",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "id": "board_eval_dart",
+      "community": 2,
+      "norm_label": "board_eval.dart"
     },
     {
       "label": "board_eval.dart",
@@ -819,7 +900,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart",
-      "community": 7,
+      "community": 2,
       "norm_label": "board_eval.dart"
     },
     {
@@ -828,7 +909,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_boardeval",
-      "community": 7,
+      "community": 2,
       "norm_label": "boardeval"
     },
     {
@@ -837,7 +918,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_keywordvalue",
-      "community": 7,
+      "community": 2,
       "norm_label": "_keywordvalue"
     },
     {
@@ -846,7 +927,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_minionvalue",
-      "community": 7,
+      "community": 2,
       "norm_label": "minionvalue"
     },
     {
@@ -855,7 +936,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_sidevalue",
-      "community": 7,
+      "community": 2,
       "norm_label": "sidevalue"
     },
     {
@@ -864,7 +945,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_score",
-      "community": 7,
+      "community": 2,
       "norm_label": "score"
     },
     {
@@ -873,17 +954,8 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_swing",
-      "community": 7,
+      "community": 2,
       "norm_label": "swing"
-    },
-    {
-      "label": "sim_models.dart",
-      "file_type": "code",
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
-      "source_location": null,
-      "id": "sim_models_dart",
-      "community": 7,
-      "norm_label": "sim_models.dart"
     },
     {
       "label": "combat.dart",
@@ -891,7 +963,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart",
-      "community": 7,
+      "community": 2,
       "norm_label": "combat.dart"
     },
     {
@@ -900,7 +972,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_combat",
-      "community": 7,
+      "community": 2,
       "norm_label": "combat"
     },
     {
@@ -909,7 +981,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_minionattacksminion",
-      "community": 7,
+      "community": 2,
       "norm_label": "minionattacksminion"
     },
     {
@@ -918,7 +990,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_minionattackshero",
-      "community": 7,
+      "community": 2,
       "norm_label": "minionattackshero"
     },
     {
@@ -927,7 +999,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_dealcombatdamage",
-      "community": 7,
+      "community": 2,
       "norm_label": "_dealcombatdamage"
     },
     {
@@ -936,7 +1008,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_cleanup",
-      "community": 7,
+      "community": 2,
       "norm_label": "_cleanup"
     },
     {
@@ -945,7 +1017,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_applyherodamage",
-      "community": 7,
+      "community": 2,
       "norm_label": "_applyherodamage"
     },
     {
@@ -954,7 +1026,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_function",
-      "community": 7,
+      "community": 2,
       "norm_label": "function"
     },
     {
@@ -963,7 +1035,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_combat_dart_heal",
-      "community": 7,
+      "community": 2,
       "norm_label": "_heal"
     },
     {
@@ -972,7 +1044,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "keyword_parser.dart"
     },
     {
@@ -981,7 +1053,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart_keywordparser",
-      "community": 3,
+      "community": 6,
       "norm_label": "keywordparser"
     },
     {
@@ -990,7 +1062,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart_tosim",
-      "community": 3,
+      "community": 6,
       "norm_label": "_tosim"
     },
     {
@@ -999,7 +1071,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart_simminion",
-      "community": 3,
+      "community": 6,
       "norm_label": "simminion"
     },
     {
@@ -1008,7 +1080,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart_fromstate",
-      "community": 3,
+      "community": 6,
       "norm_label": "fromstate"
     },
     {
@@ -1017,7 +1089,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart_simboard",
-      "community": 3,
+      "community": 6,
       "norm_label": "simboard"
     },
     {
@@ -1026,7 +1098,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\sim_models.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_sim_models_dart",
-      "community": 11,
+      "community": 12,
       "norm_label": "sim_models.dart"
     },
     {
@@ -1035,7 +1107,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\sim_models.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_sim_models_dart_simminion",
-      "community": 11,
+      "community": 12,
       "norm_label": "simminion"
     },
     {
@@ -1044,7 +1116,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\sim_models.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_sim_models_dart_simboard",
-      "community": 11,
+      "community": 12,
       "norm_label": "simboard"
     },
     {
@@ -1053,7 +1125,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\sim_models.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_sim_models_dart_has",
-      "community": 11,
+      "community": 12,
       "norm_label": "has"
     },
     {
@@ -1062,7 +1134,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\sim_models.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_sim_models_dart_clone",
-      "community": 11,
+      "community": 12,
       "norm_label": "clone"
     },
     {
@@ -1071,7 +1143,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\sim_models.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_core_sim_sim_models_dart_removedead",
-      "community": 11,
+      "community": 12,
       "norm_label": "removedead"
     },
     {
@@ -1188,7 +1260,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\card_db_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_card_db_client_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "card_db_client.dart"
     },
     {
@@ -1197,7 +1269,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\card_db_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_card_db_client_dart_cardmeta",
-      "community": 2,
+      "community": 5,
       "norm_label": "cardmeta"
     },
     {
@@ -1206,7 +1278,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\card_db_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_card_db_client_dart_carddbclient",
-      "community": 2,
+      "community": 5,
       "norm_label": "carddbclient"
     },
     {
@@ -1215,7 +1287,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\card_db_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_card_db_client_dart_parsetype",
-      "community": 2,
+      "community": 5,
       "norm_label": "_parsetype"
     },
     {
@@ -1224,7 +1296,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\card_db_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_card_db_client_dart_parserarity",
-      "community": 2,
+      "community": 5,
       "norm_label": "_parserarity"
     },
     {
@@ -1233,7 +1305,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\hsreplay_client.dart",
       "source_location": null,
       "id": "package_dio_dio_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "package:dio/dio.dart"
     },
     {
@@ -1341,7 +1413,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\firestone_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_firestone_client_dart",
-      "community": 2,
+      "community": 0,
       "norm_label": "firestone_client.dart"
     },
     {
@@ -1350,7 +1422,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\firestone_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_firestone_client_dart_bgstierentry",
-      "community": 2,
+      "community": 0,
       "norm_label": "bgstierentry"
     },
     {
@@ -1359,7 +1431,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\firestone_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_firestone_client_dart_firestoneclient",
-      "community": 2,
+      "community": 0,
       "norm_label": "firestoneclient"
     },
     {
@@ -1368,7 +1440,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\firestone_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_firestone_client_dart_parse",
-      "community": 2,
+      "community": 0,
       "norm_label": "_parse"
     },
     {
@@ -1377,7 +1449,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\firestone_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_firestone_client_dart_tierfromplacement",
-      "community": 2,
+      "community": 0,
       "norm_label": "_tierfromplacement"
     },
     {
@@ -1440,7 +1512,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\hsreplay_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_hsreplay_client_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "hsreplay_client.dart"
     },
     {
@@ -1449,7 +1521,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\hsreplay_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_hsreplay_client_dart_cardwinrate",
-      "community": 2,
+      "community": 5,
       "norm_label": "cardwinrate"
     },
     {
@@ -1458,7 +1530,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\hsreplay_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_hsreplay_client_dart_hsreplayclient",
-      "community": 2,
+      "community": 5,
       "norm_label": "hsreplayclient"
     },
     {
@@ -1467,7 +1539,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\hsreplay_client.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_data_hsreplay_client_dart_parsecsv",
-      "community": 2,
+      "community": 5,
       "norm_label": "_parsecsv"
     },
     {
@@ -1476,7 +1548,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\data\\hsreplay_client.dart",
       "source_location": null,
       "id": "package_csv_csv_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "package:csv/csv.dart"
     },
     {
@@ -1485,7 +1557,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\battlegrounds\\bgs_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_battlegrounds_bgs_engine_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "bgs_engine.dart"
     },
     {
@@ -1494,7 +1566,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\battlegrounds\\bgs_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_battlegrounds_bgs_engine_dart_bgsengine",
-      "community": 3,
+      "community": 6,
       "norm_label": "bgsengine"
     },
     {
@@ -1503,7 +1575,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\battlegrounds\\bgs_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_battlegrounds_bgs_engine_dart_shouldupgradetavern",
-      "community": 3,
+      "community": 6,
       "norm_label": "_shouldupgradetavern"
     },
     {
@@ -1512,7 +1584,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\battlegrounds\\bgs_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_battlegrounds_bgs_engine_dart_shouldfreeze",
-      "community": 3,
+      "community": 6,
       "norm_label": "_shouldfreeze"
     },
     {
@@ -1521,7 +1593,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "recommendation_engine.dart"
     },
     {
@@ -1530,17 +1602,8 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_constructedengine",
-      "community": 3,
+      "community": 6,
       "norm_label": "constructedengine"
-    },
-    {
-      "label": "attackable",
-      "file_type": "code",
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_attackable",
-      "community": 3,
-      "norm_label": "attackable"
     },
     {
       "label": "_swingToScore",
@@ -1548,17 +1611,8 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_swingtoscore",
-      "community": 3,
+      "community": 6,
       "norm_label": "_swingtoscore"
-    },
-    {
-      "label": "_tradeReason",
-      "file_type": "code",
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_tradereason",
-      "community": 3,
-      "norm_label": "_tradereason"
     },
     {
       "label": "_cardScore",
@@ -1566,7 +1620,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_cardscore",
-      "community": 3,
+      "community": 6,
       "norm_label": "_cardscore"
     },
     {
@@ -1575,7 +1629,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_manaefficiency",
-      "community": 3,
+      "community": 6,
       "norm_label": "_manaefficiency"
     },
     {
@@ -1584,7 +1638,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_boardpressure",
-      "community": 3,
+      "community": 6,
       "norm_label": "_boardpressure"
     },
     {
@@ -1593,26 +1647,8 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_cardreason",
-      "community": 3,
+      "community": 6,
       "norm_label": "_cardreason"
-    },
-    {
-      "label": "../../core/sim/sim_models.dart",
-      "file_type": "code",
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "id": "core_sim_sim_models_dart",
-      "community": 3,
-      "norm_label": "../../core/sim/sim_models.dart"
-    },
-    {
-      "label": "../../core/sim/combat.dart",
-      "file_type": "code",
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "id": "core_sim_combat_dart",
-      "community": 3,
-      "norm_label": "../../core/sim/combat.dart"
     },
     {
       "label": "../../core/sim/board_eval.dart",
@@ -1620,7 +1656,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "core_sim_board_eval_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "../../core/sim/board_eval.dart"
     },
     {
@@ -1629,8 +1665,17 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
       "source_location": null,
       "id": "core_sim_keyword_parser_dart",
-      "community": 3,
+      "community": 6,
       "norm_label": "../../core/sim/keyword_parser.dart"
+    },
+    {
+      "label": "../../core/sim/attack_planner.dart",
+      "file_type": "code",
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
+      "source_location": null,
+      "id": "core_sim_attack_planner_dart",
+      "community": 6,
+      "norm_label": "../../core/sim/attack_planner.dart"
     },
     {
       "label": "dashboard.dart",
@@ -1638,7 +1683,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "dashboard.dart"
     },
     {
@@ -1647,7 +1692,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_dashboard",
-      "community": 4,
+      "community": 3,
       "norm_label": "dashboard"
     },
     {
@@ -1656,7 +1701,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_panel",
-      "community": 4,
+      "community": 3,
       "norm_label": "_panel"
     },
     {
@@ -1665,7 +1710,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_stat",
-      "community": 4,
+      "community": 3,
       "norm_label": "_stat"
     },
     {
@@ -1674,7 +1719,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_sessioncard",
-      "community": 4,
+      "community": 3,
       "norm_label": "_sessioncard"
     },
     {
@@ -1683,7 +1728,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_overallcard",
-      "community": 4,
+      "community": 3,
       "norm_label": "_overallcard"
     },
     {
@@ -1692,7 +1737,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_lastgamescard",
-      "community": 4,
+      "community": 3,
       "norm_label": "_lastgamescard"
     },
     {
@@ -1701,7 +1746,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_classwinratecard",
-      "community": 4,
+      "community": 3,
       "norm_label": "_classwinratecard"
     },
     {
@@ -1710,7 +1755,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_deckshelfcard",
-      "community": 4,
+      "community": 3,
       "norm_label": "_deckshelfcard"
     },
     {
@@ -1719,7 +1764,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_deckrow",
-      "community": 4,
+      "community": 3,
       "norm_label": "_deckrow"
     },
     {
@@ -1728,7 +1773,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_carddbcard",
-      "community": 4,
+      "community": 3,
       "norm_label": "_carddbcard"
     },
     {
@@ -1737,7 +1782,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_build",
-      "community": 4,
+      "community": 3,
       "norm_label": "build"
     },
     {
@@ -1746,7 +1791,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_singlechildscrollview",
-      "community": 4,
+      "community": 3,
       "norm_label": "singlechildscrollview"
     },
     {
@@ -1755,7 +1800,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_sizedbox",
-      "community": 4,
+      "community": 3,
       "norm_label": "sizedbox"
     },
     {
@@ -1764,7 +1809,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_container",
-      "community": 4,
+      "community": 3,
       "norm_label": "container"
     },
     {
@@ -1773,7 +1818,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_column",
-      "community": 4,
+      "community": 3,
       "norm_label": "column"
     },
     {
@@ -1782,7 +1827,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_padding",
-      "community": 4,
+      "community": 3,
       "norm_label": "padding"
     },
     {
@@ -1791,7 +1836,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_expanded",
-      "community": 4,
+      "community": 3,
       "norm_label": "expanded"
     },
     {
@@ -1800,7 +1845,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_field",
-      "community": 4,
+      "community": 3,
       "norm_label": "_field"
     },
     {
@@ -1809,7 +1854,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_textfield",
-      "community": 4,
+      "community": 3,
       "norm_label": "textfield"
     },
     {
@@ -1818,7 +1863,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_titlecase",
-      "community": 4,
+      "community": 3,
       "norm_label": "_titlecase"
     },
     {
@@ -1827,7 +1872,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_text",
-      "community": 4,
+      "community": 3,
       "norm_label": "text"
     },
     {
@@ -1836,7 +1881,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_dashboard_dart_icon",
-      "community": 4,
+      "community": 3,
       "norm_label": "icon"
     },
     {
@@ -1845,7 +1890,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\overlay_window.dart",
       "source_location": null,
       "id": "package_flutter_services_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "package:flutter/services.dart"
     },
     {
@@ -1854,7 +1899,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\dashboard.dart",
       "source_location": null,
       "id": "core_deckstring_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../core/deckstring.dart"
     },
     {
@@ -2124,7 +2169,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_recommendation_card_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "recommendation_card.dart"
     },
     {
@@ -2133,7 +2178,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_recommendation_card_dart_recommendationcard",
-      "community": 10,
+      "community": 11,
       "norm_label": "recommendationcard"
     },
     {
@@ -2142,7 +2187,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_recommendation_card_dart_build",
-      "community": 10,
+      "community": 11,
       "norm_label": "build"
     },
     {
@@ -2151,7 +2196,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_recommendation_card_dart_container",
-      "community": 10,
+      "community": 11,
       "norm_label": "container"
     },
     {
@@ -2160,7 +2205,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_recommendation_card_dart_sizedbox",
-      "community": 10,
+      "community": 11,
       "norm_label": "sizedbox"
     },
     {
@@ -2169,7 +2214,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\overlay\\recommendation_card.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_overlay_recommendation_card_dart_text",
-      "community": 10,
+      "community": 11,
       "norm_label": "text"
     },
     {
@@ -2295,7 +2340,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "power_log_parser.dart"
     },
     {
@@ -2304,7 +2349,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_entity",
-      "community": 2,
+      "community": 5,
       "norm_label": "_entity"
     },
     {
@@ -2313,7 +2358,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_powerlogparser",
-      "community": 2,
+      "community": 5,
       "norm_label": "powerlogparser"
     },
     {
@@ -2322,7 +2367,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_function",
-      "community": 2,
+      "community": 5,
       "norm_label": "function"
     },
     {
@@ -2331,7 +2376,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_buildstate",
-      "community": 2,
+      "community": 5,
       "norm_label": "_buildstate"
     },
     {
@@ -2340,7 +2385,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_cardinhand",
-      "community": 2,
+      "community": 5,
       "norm_label": "cardinhand"
     },
     {
@@ -2349,7 +2394,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_herohp",
-      "community": 2,
+      "community": 5,
       "norm_label": "herohp"
     },
     {
@@ -2358,7 +2403,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_emitgameend",
-      "community": 2,
+      "community": 5,
       "norm_label": "_emitgameend"
     },
     {
@@ -2367,7 +2412,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "c_dev_projects_hs_helper_lib_platform_windows_power_log_parser_dart_reset",
-      "community": 2,
+      "community": 5,
       "norm_label": "reset"
     },
     {
@@ -2376,7 +2421,7 @@
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\platform\\windows\\power_log_parser.dart",
       "source_location": null,
       "id": "core_hero_class_dart",
-      "community": 2,
+      "community": 5,
       "norm_label": "../../core/hero_class.dart"
     }
   ],
@@ -3921,6 +3966,138 @@
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackstep",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackstep"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackplan",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackplan"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackplanner",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_attackplanner"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_plan",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_plan"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_search",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart_search"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "sim_models_dart",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "sim_models_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "combat_dart",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "combat_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\attack_planner.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "_tgt": "board_eval_dart",
+      "source": "c_dev_projects_hs_helper_lib_core_sim_attack_planner_dart",
+      "target": "board_eval_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart",
+      "_tgt": "sim_models_dart",
+      "source": "sim_models_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_combat_dart",
+      "_tgt": "sim_models_dart",
+      "source": "sim_models_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_combat_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart",
+      "_tgt": "sim_models_dart",
+      "source": "sim_models_dart",
+      "target": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
       "source_location": null,
       "weight": 1.0,
@@ -3988,42 +4165,6 @@
       "_tgt": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_swing",
       "source": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart",
       "target": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart_swing"
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\board_eval.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart",
-      "_tgt": "sim_models_dart",
-      "source": "c_dev_projects_hs_helper_lib_core_sim_board_eval_dart",
-      "target": "sim_models_dart"
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\combat.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_core_sim_combat_dart",
-      "_tgt": "sim_models_dart",
-      "source": "sim_models_dart",
-      "target": "c_dev_projects_hs_helper_lib_core_sim_combat_dart"
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\core\\sim\\keyword_parser.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart",
-      "_tgt": "sim_models_dart",
-      "source": "sim_models_dart",
-      "target": "c_dev_projects_hs_helper_lib_core_sim_keyword_parser_dart"
     },
     {
       "relation": "defines",
@@ -4837,33 +4978,9 @@
       "source_location": null,
       "weight": 1.0,
       "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "_tgt": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_attackable",
-      "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "target": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_attackable"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
       "_tgt": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_swingtoscore",
       "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
       "target": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_swingtoscore"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "_tgt": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_tradereason",
-      "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "target": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart_tradereason"
     },
     {
       "relation": "defines",
@@ -4921,30 +5038,6 @@
       "source_location": null,
       "weight": 1.0,
       "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "_tgt": "core_sim_sim_models_dart",
-      "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "target": "core_sim_sim_models_dart"
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "_tgt": "core_sim_combat_dart",
-      "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
-      "target": "core_sim_combat_dart"
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
       "_tgt": "core_sim_board_eval_dart",
       "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
       "target": "core_sim_board_eval_dart"
@@ -4960,6 +5053,18 @@
       "_tgt": "core_sim_keyword_parser_dart",
       "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
       "target": "core_sim_keyword_parser_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\dev-Projects\\HS-Helper\\lib\\modes\\constructed\\recommendation_engine.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
+      "_tgt": "core_sim_attack_planner_dart",
+      "source": "c_dev_projects_hs_helper_lib_modes_constructed_recommendation_engine_dart",
+      "target": "core_sim_attack_planner_dart"
     },
     {
       "relation": "defines",

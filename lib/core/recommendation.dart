@@ -16,6 +16,7 @@ class Recommendation {
     this.card,
     this.subtitle = '',
     this.isLethal = false,
+    this.planSteps = const [],
   });
 
   final ActionType type;
@@ -32,6 +33,10 @@ class Recommendation {
   final CardInHand? card;
 
   final bool isLethal;
+
+  /// For attack recommendations from the planner: the full planned attack line
+  /// (each "Attacker → Target"). Empty for single-step / non-attack actions.
+  final List<String> planSteps;
 
   // Convenience constructors.
   factory Recommendation.playCard(
@@ -68,6 +73,7 @@ class Recommendation {
     required String attackerLabel,
     required String targetLabel,
     bool isLethal = false,
+    List<String> planSteps = const [],
   }) =>
       Recommendation(
         type: ActionType.attack,
@@ -76,6 +82,7 @@ class Recommendation {
         title: 'Attack: $targetLabel',
         subtitle: '$attackerLabel → $targetLabel',
         isLethal: isLethal,
+        planSteps: planSteps,
       );
 
   factory Recommendation.endTurn({required String reason}) => Recommendation(

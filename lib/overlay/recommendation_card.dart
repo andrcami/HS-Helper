@@ -83,6 +83,26 @@ class RecommendationCard extends StatelessWidget {
                       color: Colors.white.withOpacity(0.6), fontSize: 11),
                   overflow: TextOverflow.ellipsis,
                 ),
+                // Multi-attack plan: list each step in order.
+                if (rec.planSteps.length > 1)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        for (var s = 0; s < rec.planSteps.length; s++)
+                          Text(
+                            '${s + 1}. ${rec.planSteps[s]}',
+                            style: TextStyle(
+                              color: _scoreColor.withOpacity(0.85),
+                              fontSize: 10,
+                              height: 1.4,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                      ],
+                    ),
+                  ),
               ],
             ),
           ),

@@ -116,6 +116,7 @@ class CacheManager extends ChangeNotifier {
   CardWinrate? winrate(String cardId) => _winrateCache[cardId];
   BgsTierEntry? tier(String cardId) => _tierCache[cardId];
   CardMeta? card(String cardId) => _cardMeta[cardId];
+  List<String> cardMechanics(String cardId) => _cardMeta[cardId]?.mechanics ?? const [];
   bool get hasCardDb => _cardMeta.isNotEmpty;
 
   // dbfId → cardId, built lazily from card metadata (for deckstring decoding).
@@ -162,6 +163,7 @@ class CacheManager extends ChangeNotifier {
             'rarity': e.value.rarity.index,
             'class': e.value.cardClass,
             'text': e.value.text,
+            'mech': e.value.mechanics,
           },
       }));
     } catch (e) {
@@ -191,6 +193,10 @@ class CacheManager extends ChangeNotifier {
             rarity: Rarity.values[(e.value['rarity'] as num).toInt()],
             cardClass: e.value['class'] as String? ?? 'NEUTRAL',
             text: e.value['text'] as String? ?? '',
+            mechanics: (e.value['mech'] as List<dynamic>?)
+                    ?.map((x) => x.toString())
+                    .toList() ??
+                const [],
           ),
       };
       _dbfToCardId = null;

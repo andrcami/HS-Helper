@@ -15,6 +15,7 @@ class CardMeta {
     required this.rarity,
     required this.cardClass,
     required this.text,
+    this.mechanics = const [],
   });
 
   final String cardId;
@@ -25,6 +26,7 @@ class CardMeta {
   final Rarity rarity;
   final String cardClass;
   final String text;
+  final List<String> mechanics; // raw HearthstoneJSON keyword tags
 }
 
 /// Fetches the full collectible card database from HearthstoneJSON.
@@ -62,6 +64,10 @@ class CardDbClient {
           rarity: _parseRarity(m['rarity'] as String?),
           cardClass: m['cardClass'] as String? ?? 'NEUTRAL',
           text: m['text'] as String? ?? '',
+          mechanics: (m['mechanics'] as List<dynamic>?)
+                  ?.map((e) => e.toString())
+                  .toList() ??
+              const [],
         ));
       }
       _log.i('CardDB loaded: ${cards.length} cards');

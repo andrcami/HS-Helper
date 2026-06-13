@@ -61,6 +61,9 @@ _$MinionOnBoardImpl _$$MinionOnBoardImplFromJson(Map<String, dynamic> json) =>
       hasTaunt: json['hasTaunt'] as bool? ?? false,
       hasDivineShield: json['hasDivineShield'] as bool? ?? false,
       hasWindfury: json['hasWindfury'] as bool? ?? false,
+      canAttack: json['canAttack'] as bool? ?? true,
+      canAttackFace: json['canAttackFace'] as bool? ?? true,
+      hasStealth: json['hasStealth'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$MinionOnBoardImplToJson(_$MinionOnBoardImpl instance) =>
@@ -73,6 +76,9 @@ Map<String, dynamic> _$$MinionOnBoardImplToJson(_$MinionOnBoardImpl instance) =>
       'hasTaunt': instance.hasTaunt,
       'hasDivineShield': instance.hasDivineShield,
       'hasWindfury': instance.hasWindfury,
+      'canAttack': instance.canAttack,
+      'canAttackFace': instance.canAttackFace,
+      'hasStealth': instance.hasStealth,
     };
 
 _$BoardImpl _$$BoardImplFromJson(Map<String, dynamic> json) => _$BoardImpl(

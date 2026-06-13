@@ -1,11 +1,11 @@
 # Graph Report - C:\dev-Projects\HS-Helper\lib  (2026-06-13)
 
 ## Corpus Check
-- 29 files · ~34,861 words
+- 29 files · ~37,073 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 263 nodes · 293 edges · 18 communities detected
+- 264 nodes · 294 edges · 17 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -27,7 +27,6 @@
 - [[_COMMUNITY_Community 14|Community 14]]
 - [[_COMMUNITY_Community 15|Community 15]]
 - [[_COMMUNITY_Community 16|Community 16]]
-- [[_COMMUNITY_Community 17|Community 17]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `_` - 22 edges
@@ -56,27 +55,27 @@ Nodes (28): build, CacheStatusBar, Column, Container, dispose, Divider, _EmptySt
 
 ### Community 2 - "Community 2"
 Cohesion: 0.08
-Nodes (24): build, _CardDbCard, _ClassWinRateCard, Column, Container, Dashboard, _DeckRow, _DeckShelfCard (+16 more)
+Nodes (24): CardDbClient, CardMeta, _parseRarity, _parseType, BgsTierEntry, FirestoneClient, _parse, _tierFromPlacement (+16 more)
 
 ### Community 3 - "Community 3"
+Cohesion: 0.08
+Nodes (22): fromState, KeywordParser, SimBoard, SimMinion, _toSim, BgsEngine, _shouldFreeze, _shouldUpgradeTavern (+14 more)
+
+### Community 4 - "Community 4"
+Cohesion: 0.08
+Nodes (24): build, _CardDbCard, _ClassWinRateCard, Column, Container, Dashboard, _DeckRow, _DeckShelfCard (+16 more)
+
+### Community 5 - "Community 5"
 Cohesion: 0.09
 Nodes (22): build, _checkHs, dispose, HsHelperApp, initState, _isHearthstoneRunning, main, _MainOverlay (+14 more)
 
-### Community 4 - "Community 4"
+### Community 6 - "Community 6"
 Cohesion: 0.1
 Nodes (21): _, battlegrounds, BattlegroundsGameState, _BgsMinion, _BgsState, _Board, _CardInHand, CheckedFromJsonException (+13 more)
 
-### Community 5 - "Community 5"
-Cohesion: 0.12
-Nodes (15): CardDbClient, CardMeta, _parseRarity, _parseType, BgsTierEntry, FirestoneClient, _parse, _tierFromPlacement (+7 more)
-
-### Community 6 - "Community 6"
-Cohesion: 0.12
-Nodes (15): BoardEval, _keywordValue, minionValue, score, sideValue, swing, _applyHeroDamage, _cleanup (+7 more)
-
 ### Community 7 - "Community 7"
 Cohesion: 0.12
-Nodes (15): fromState, KeywordParser, SimBoard, SimMinion, _toSim, _buildState, CardInHand, _emitGameEnd (+7 more)
+Nodes (15): BoardEval, _keywordValue, minionValue, score, sideValue, swing, _applyHeroDamage, _cleanup (+7 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.15
@@ -87,56 +86,52 @@ Cohesion: 0.15
 Nodes (12): _beginTailing, _checkForNewerSession, _defaultLogPath, dispose, _openOrWait, _poll, _pollUntilExists, _reopen (+4 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.17
-Nodes (11): _boardPressure, _cardReason, _cardScore, ConstructedEngine, _manaEfficiency, _swingToScore, _tradeReason, ../../core/sim/board_eval.dart (+3 more)
+Cohesion: 0.29
+Nodes (6): build, Container, RecommendationCard, SizedBox, Text, package:flutter/material.dart
 
 ### Community 11 - "Community 11"
-Cohesion: 0.17
-Nodes (10): BgsEngine, _shouldFreeze, _shouldUpgradeTavern, build, Container, RecommendationCard, SizedBox, Text (+2 more)
-
-### Community 12 - "Community 12"
 Cohesion: 0.33
 Nodes (5): clone, has, removeDead, SimBoard, SimMinion
 
-### Community 13 - "Community 13"
+### Community 12 - "Community 12"
 Cohesion: 0.5
 Nodes (5): _, _BgsRecommendation, identical, _then, toString
 
-### Community 14 - "Community 14"
+### Community 13 - "Community 13"
 Cohesion: 0.67
 Nodes (2): GameRecord, HistoryStats
 
-### Community 15 - "Community 15"
+### Community 14 - "Community 14"
 Cohesion: 0.67
 Nodes (2): dispose, LogSource
 
-### Community 16 - "Community 16"
+### Community 15 - "Community 15"
 Cohesion: 1.0
 Nodes (1): heroClassFromCardId
 
-### Community 17 - "Community 17"
+### Community 16 - "Community 16"
 Cohesion: 1.0
 Nodes (0): 
 
 ## Knowledge Gaps
-- **215 isolated node(s):** `HsHelperApp`, `_MainOverlay`, `_MainOverlayState`, `main`, `build` (+210 more)
+- **216 isolated node(s):** `HsHelperApp`, `_MainOverlay`, `_MainOverlayState`, `main`, `build` (+211 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 16`** (2 nodes): `hero_class.dart`, `heroClassFromCardId`
+- **Thin community `Community 15`** (2 nodes): `hero_class.dart`, `heroClassFromCardId`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (1 nodes): `game_state.g.dart`
+- **Thin community `Community 16`** (1 nodes): `game_state.g.dart`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `../../data/cache_manager.dart` connect `Community 7` to `Community 1`, `Community 2`, `Community 3`, `Community 10`, `Community 11`?**
-  _High betweenness centrality (0.286) - this node is a cross-community bridge._
-- **Why does `package:logger/logger.dart` connect `Community 5` to `Community 0`, `Community 9`, `Community 3`, `Community 7`?**
+- **Why does `../../data/cache_manager.dart` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 5`?**
+  _High betweenness centrality (0.287) - this node is a cross-community bridge._
+- **Why does `package:logger/logger.dart` connect `Community 2` to `Community 0`, `Community 9`, `Community 5`?**
   _High betweenness centrality (0.191) - this node is a cross-community bridge._
-- **Why does `sim_models.dart` connect `Community 6` to `Community 7`?**
-  _High betweenness centrality (0.098) - this node is a cross-community bridge._
+- **Why does `sim_models.dart` connect `Community 7` to `Community 3`?**
+  _High betweenness centrality (0.097) - this node is a cross-community bridge._
 - **What connects `HsHelperApp`, `_MainOverlay`, `_MainOverlayState` to the rest of the system?**
-  _215 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _216 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.06 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

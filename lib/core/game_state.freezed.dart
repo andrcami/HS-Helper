@@ -374,6 +374,11 @@ mixin _$MinionOnBoard {
   bool get hasTaunt => throw _privateConstructorUsedError;
   bool get hasDivineShield => throw _privateConstructorUsedError;
   bool get hasWindfury => throw _privateConstructorUsedError;
+  bool get canAttack =>
+      throw _privateConstructorUsedError; // false if summoning-sick / exhausted / frozen
+  bool get canAttackFace =>
+      throw _privateConstructorUsedError; // false for rush played this turn
+  bool get hasStealth => throw _privateConstructorUsedError;
 
   /// Serializes this MinionOnBoard to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -401,6 +406,9 @@ abstract class $MinionOnBoardCopyWith<$Res> {
     bool hasTaunt,
     bool hasDivineShield,
     bool hasWindfury,
+    bool canAttack,
+    bool canAttackFace,
+    bool hasStealth,
   });
 }
 
@@ -427,6 +435,9 @@ class _$MinionOnBoardCopyWithImpl<$Res, $Val extends MinionOnBoard>
     Object? hasTaunt = null,
     Object? hasDivineShield = null,
     Object? hasWindfury = null,
+    Object? canAttack = null,
+    Object? canAttackFace = null,
+    Object? hasStealth = null,
   }) {
     return _then(
       _value.copyWith(
@@ -462,6 +473,18 @@ class _$MinionOnBoardCopyWithImpl<$Res, $Val extends MinionOnBoard>
                 ? _value.hasWindfury
                 : hasWindfury // ignore: cast_nullable_to_non_nullable
                       as bool,
+            canAttack: null == canAttack
+                ? _value.canAttack
+                : canAttack // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            canAttackFace: null == canAttackFace
+                ? _value.canAttackFace
+                : canAttackFace // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            hasStealth: null == hasStealth
+                ? _value.hasStealth
+                : hasStealth // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -486,6 +509,9 @@ abstract class _$$MinionOnBoardImplCopyWith<$Res>
     bool hasTaunt,
     bool hasDivineShield,
     bool hasWindfury,
+    bool canAttack,
+    bool canAttackFace,
+    bool hasStealth,
   });
 }
 
@@ -511,6 +537,9 @@ class __$$MinionOnBoardImplCopyWithImpl<$Res>
     Object? hasTaunt = null,
     Object? hasDivineShield = null,
     Object? hasWindfury = null,
+    Object? canAttack = null,
+    Object? canAttackFace = null,
+    Object? hasStealth = null,
   }) {
     return _then(
       _$MinionOnBoardImpl(
@@ -546,6 +575,18 @@ class __$$MinionOnBoardImplCopyWithImpl<$Res>
             ? _value.hasWindfury
             : hasWindfury // ignore: cast_nullable_to_non_nullable
                   as bool,
+        canAttack: null == canAttack
+            ? _value.canAttack
+            : canAttack // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        canAttackFace: null == canAttackFace
+            ? _value.canAttackFace
+            : canAttackFace // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        hasStealth: null == hasStealth
+            ? _value.hasStealth
+            : hasStealth // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -563,6 +604,9 @@ class _$MinionOnBoardImpl implements _MinionOnBoard {
     this.hasTaunt = false,
     this.hasDivineShield = false,
     this.hasWindfury = false,
+    this.canAttack = true,
+    this.canAttackFace = true,
+    this.hasStealth = false,
   });
 
   factory _$MinionOnBoardImpl.fromJson(Map<String, dynamic> json) =>
@@ -587,10 +631,21 @@ class _$MinionOnBoardImpl implements _MinionOnBoard {
   @override
   @JsonKey()
   final bool hasWindfury;
+  @override
+  @JsonKey()
+  final bool canAttack;
+  // false if summoning-sick / exhausted / frozen
+  @override
+  @JsonKey()
+  final bool canAttackFace;
+  // false for rush played this turn
+  @override
+  @JsonKey()
+  final bool hasStealth;
 
   @override
   String toString() {
-    return 'MinionOnBoard(cardId: $cardId, name: $name, attack: $attack, health: $health, isPlayerOwned: $isPlayerOwned, hasTaunt: $hasTaunt, hasDivineShield: $hasDivineShield, hasWindfury: $hasWindfury)';
+    return 'MinionOnBoard(cardId: $cardId, name: $name, attack: $attack, health: $health, isPlayerOwned: $isPlayerOwned, hasTaunt: $hasTaunt, hasDivineShield: $hasDivineShield, hasWindfury: $hasWindfury, canAttack: $canAttack, canAttackFace: $canAttackFace, hasStealth: $hasStealth)';
   }
 
   @override
@@ -609,7 +664,13 @@ class _$MinionOnBoardImpl implements _MinionOnBoard {
             (identical(other.hasDivineShield, hasDivineShield) ||
                 other.hasDivineShield == hasDivineShield) &&
             (identical(other.hasWindfury, hasWindfury) ||
-                other.hasWindfury == hasWindfury));
+                other.hasWindfury == hasWindfury) &&
+            (identical(other.canAttack, canAttack) ||
+                other.canAttack == canAttack) &&
+            (identical(other.canAttackFace, canAttackFace) ||
+                other.canAttackFace == canAttackFace) &&
+            (identical(other.hasStealth, hasStealth) ||
+                other.hasStealth == hasStealth));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -624,6 +685,9 @@ class _$MinionOnBoardImpl implements _MinionOnBoard {
     hasTaunt,
     hasDivineShield,
     hasWindfury,
+    canAttack,
+    canAttackFace,
+    hasStealth,
   );
 
   /// Create a copy of MinionOnBoard
@@ -650,6 +714,9 @@ abstract class _MinionOnBoard implements MinionOnBoard {
     final bool hasTaunt,
     final bool hasDivineShield,
     final bool hasWindfury,
+    final bool canAttack,
+    final bool canAttackFace,
+    final bool hasStealth,
   }) = _$MinionOnBoardImpl;
 
   factory _MinionOnBoard.fromJson(Map<String, dynamic> json) =
@@ -671,6 +738,12 @@ abstract class _MinionOnBoard implements MinionOnBoard {
   bool get hasDivineShield;
   @override
   bool get hasWindfury;
+  @override
+  bool get canAttack; // false if summoning-sick / exhausted / frozen
+  @override
+  bool get canAttackFace; // false for rush played this turn
+  @override
+  bool get hasStealth;
 
   /// Create a copy of MinionOnBoard
   /// with the given fields replaced by the non-null parameter values.

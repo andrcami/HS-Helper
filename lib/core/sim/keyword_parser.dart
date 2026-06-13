@@ -57,6 +57,7 @@ class KeywordParser {
     if (m.hasTaunt) kws.add(Keyword.taunt);
     if (m.hasDivineShield) kws.add(Keyword.divineShield);
     if (m.hasWindfury) kws.add(Keyword.windfury);
+    if (m.hasStealth) kws.add(Keyword.stealth);
     return SimMinion(
       cardId: m.cardId,
       name: m.name,
@@ -64,7 +65,8 @@ class KeywordParser {
       health: m.health,
       isPlayerOwned: m.isPlayerOwned,
       keywords: kws,
-      canAttack: true, // refined by EXHAUSTED tracking later
+      canAttack: m.canAttack, // from parser: exhausted/frozen/sick handled
+      canAttackFace: m.canAttackFace,
     );
   }
 

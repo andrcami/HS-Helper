@@ -35,6 +35,7 @@ class SimMinion {
     Set<Keyword>? keywords,
     this.maxHealth = 0,
     this.canAttack = true,
+    this.canAttackFace = true,
     this.spellDamage = 0,
   }) : keywords = keywords ?? <Keyword>{} {
     if (maxHealth == 0) maxHealth = health;
@@ -48,6 +49,7 @@ class SimMinion {
   final bool isPlayerOwned;
   final Set<Keyword> keywords;
   bool canAttack; // summoning sickness / exhausted / frozen handled here
+  bool canAttackFace; // false for rush played this turn
   int spellDamage;
 
   bool has(Keyword k) => keywords.contains(k);
@@ -62,6 +64,7 @@ class SimMinion {
         isPlayerOwned: isPlayerOwned,
         keywords: {...keywords},
         canAttack: canAttack,
+        canAttackFace: canAttackFace,
         spellDamage: spellDamage,
       );
 }

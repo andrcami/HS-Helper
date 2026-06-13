@@ -22,9 +22,32 @@ class _Entity {
   bool divineShield = false;
   bool windfury = false;
   bool exhausted = false; // summoning sickness / already attacked → can't attack
+  bool frozen = false; // FROZEN → can't attack this turn
+  bool stealth = false;
+  bool rush = false;
+  bool charge = false;
+  bool justPlayed = false; // entered PLAY this turn (summoning sickness source)
   String cardType = ''; // MINION / WEAPON / HERO / HERO_POWER / SPELL
 
   int get effectiveHealth => health - damage;
+
+  /// Can this minion attack ANY target right now?
+  /// Sick (just played) blocks attack UNLESS charge (any) or rush (minions only).
+  /// Exhausted (already attacked) and frozen always block.
+  bool get canAttack {
+    if (frozen) return false;
+    if (exhausted) return false;
+    if (justPlayed && !charge && !rush) return false;
+    return true;
+  }
+
+  /// Can it attack the enemy HERO this turn? Rush played this turn can hit
+  /// minions only, not face.
+  bool get canAttackFace {
+    if (!canAttack) return false;
+    if (justPlayed && rush && !charge) return false;
+    return true;
+  }
 }
 
 class PowerLogParser {
@@ -261,6 +284,23 @@ class PowerLogParser {
         case 'WINDFURY':
           e.windfury = value == '1';
           break;
+        case 'STEALTH':
+          e.stealth = value == '1';
+          break;
+        case 'FROZEN':
+          e.frozen = value == '1';
+          changed = true;
+          break;
+        case 'RUSH':
+          e.rush = value == '1';
+          break;
+        case 'CHARGE':
+          e.charge = value == '1';
+          break;
+        case 'JUST_PLAYED':
+          e.justPlayed = value == '1';
+          changed = true;
+          break;
         case 'EXHAUSTED':
           e.exhausted = value == '1';
           changed = true;
@@ -328,9 +368,11 @@ class PowerLogParser {
               hasTaunt: e.taunt,
               hasDivineShield: e.divineShield,
               hasWindfury: e.windfury,
+              hasStealth: e.stealth,
+              canAttack: e.canAttack,
+              canAttackFace: e.canAttackFace,
             ))
-        .toList()
-      ..sort((a, b) => 0); // stable
+        .toList();
 
     // Hero entities (zonePos 0, PLAY) carry hero HP via health - damage.
     int heroHp(int playerId) {

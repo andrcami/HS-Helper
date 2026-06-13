@@ -69,12 +69,14 @@ class ConstructedEngine {
   Recommendation? _lethalCheck(ConstructedState state) {
     final oppHp = state.board.opponentHp;
     if (oppHp <= 0) return null;
-    // Opponent taunts block face damage — no simple lethal.
-    final hasTaunt = state.board.opponentMinions.any((m) => m.hasTaunt);
+    // Opponent un-stealthed taunts block face damage — no simple lethal.
+    final hasTaunt = state.board.opponentMinions
+        .any((m) => m.hasTaunt && !m.hasStealth);
     if (hasTaunt) return null;
 
-    // Sum of attack from ready minions + weapon.
+    // Sum of attack from minions that can actually hit FACE this turn + weapon.
     final readyAttack = state.board.playerMinions
+        .where((m) => m.canAttackFace)
         .fold<int>(0, (sum, m) => sum + m.attack);
     final total = readyAttack + state.weaponAttack;
 
@@ -101,17 +103,23 @@ class ConstructedEngine {
     final parser = KeywordParser(cache);
     final base = parser.fromState(state);
 
-    // Indices of legal opponent targets (taunts force the target set).
-    final taunts = base.taunts(false);
+    // Legal targets: stealthed minions can't be attacked. A stealthed taunt
+    // therefore does NOT force targeting (it's untargetable).
+    bool attackable(SimMinion m) => m.alive && !m.has(Keyword.stealth);
+
     final tauntIdx = <int>[
       for (var j = 0; j < base.opponentMinions.length; j++)
         if (base.opponentMinions[j].has(Keyword.taunt) &&
-            base.opponentMinions[j].alive)
+            attackable(base.opponentMinions[j]))
           j
     ];
+    final taunts = tauntIdx.map((j) => base.opponentMinions[j]).toList();
     final targetIdx = tauntIdx.isNotEmpty
         ? tauntIdx
-        : [for (var j = 0; j < base.opponentMinions.length; j++) j];
+        : [
+            for (var j = 0; j < base.opponentMinions.length; j++)
+              if (attackable(base.opponentMinions[j])) j
+          ];
 
     for (var i = 0; i < base.playerMinions.length; i++) {
       final attacker = base.playerMinions[i];
@@ -139,8 +147,9 @@ class ConstructedEngine {
         }
       }
 
-      // Candidate: go face (only legal if no taunts).
-      if (taunts.isEmpty) {
+      // Candidate: go face (legal if no taunts AND this minion may hit face —
+      // a rush minion played this turn can't go face).
+      if (taunts.isEmpty && attacker.canAttackFace) {
         final sim = base.clone();
         Combat.minionAttacksHero(sim, sim.playerMinions[i]);
         final swing = BoardEval.swing(base, sim);

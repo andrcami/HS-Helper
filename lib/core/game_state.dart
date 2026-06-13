@@ -38,6 +38,9 @@ class MinionOnBoard with _$MinionOnBoard {
     @Default(false) bool hasTaunt,
     @Default(false) bool hasDivineShield,
     @Default(false) bool hasWindfury,
+    @Default(true) bool canAttack, // false if summoning-sick / exhausted / frozen
+    @Default(true) bool canAttackFace, // false for rush played this turn
+    @Default(false) bool hasStealth,
   }) = _MinionOnBoard;
 
   factory MinionOnBoard.fromJson(Map<String, dynamic> json) =>

@@ -1,11 +1,11 @@
 # Graph Report - C:\dev-Projects\HS-Helper\lib  (2026-06-13)
 
 ## Corpus Check
-- 25 files · ~18,769 words
+- 25 files · ~33,514 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 231 nodes · 261 edges · 15 communities detected
+- 232 nodes · 262 edges · 16 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -25,6 +25,7 @@
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 15|Community 15]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `_` - 22 edges
@@ -53,23 +54,23 @@ Nodes (28): build, CacheStatusBar, Column, Container, dispose, Divider, _EmptySt
 
 ### Community 2 - "Community 2"
 Cohesion: 0.08
-Nodes (23): CardDbClient, CardMeta, _parseRarity, _parseType, BgsTierEntry, FirestoneClient, _parse, _tierFromPlacement (+15 more)
-
-### Community 3 - "Community 3"
-Cohesion: 0.08
 Nodes (24): build, _CardDbCard, _ClassWinRateCard, Column, Container, Dashboard, _DeckRow, _DeckShelfCard (+16 more)
 
-### Community 4 - "Community 4"
+### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (22): build, _checkHs, dispose, HsHelperApp, initState, _isHearthstoneRunning, main, _MainOverlay (+14 more)
 
-### Community 5 - "Community 5"
+### Community 4 - "Community 4"
 Cohesion: 0.09
 Nodes (20): BgsEngine, _shouldFreeze, _shouldUpgradeTavern, _bestTrade, _boardPressure, _cardReason, _cardScore, ConstructedEngine (+12 more)
 
-### Community 6 - "Community 6"
+### Community 5 - "Community 5"
 Cohesion: 0.1
 Nodes (21): _, battlegrounds, BattlegroundsGameState, _BgsMinion, _BgsState, _Board, _CardInHand, CheckedFromJsonException (+13 more)
+
+### Community 6 - "Community 6"
+Cohesion: 0.12
+Nodes (15): CardDbClient, CardMeta, _parseRarity, _parseType, BgsTierEntry, FirestoneClient, _parse, _tierFromPlacement (+7 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.15
@@ -84,44 +85,48 @@ Cohesion: 0.18
 Nodes (10): CacheManager, Duration, _loadCardDb, _persist, _persistCardDb, refresh, _setStatus, card_db_client.dart (+2 more)
 
 ### Community 10 - "Community 10"
+Cohesion: 0.2
+Nodes (9): _buildState, CardInHand, _emitGameEnd, _Entity, Function, heroHp, PowerLogParser, reset (+1 more)
+
+### Community 11 - "Community 11"
 Cohesion: 0.5
 Nodes (5): _, _BgsRecommendation, identical, _then, toString
 
-### Community 11 - "Community 11"
+### Community 12 - "Community 12"
 Cohesion: 0.67
 Nodes (2): GameRecord, HistoryStats
 
-### Community 12 - "Community 12"
+### Community 13 - "Community 13"
 Cohesion: 0.67
 Nodes (2): dispose, LogSource
 
-### Community 13 - "Community 13"
+### Community 14 - "Community 14"
 Cohesion: 1.0
 Nodes (1): heroClassFromCardId
 
-### Community 14 - "Community 14"
+### Community 15 - "Community 15"
 Cohesion: 1.0
 Nodes (0): 
 
 ## Knowledge Gaps
-- **189 isolated node(s):** `HsHelperApp`, `_MainOverlay`, `_MainOverlayState`, `main`, `build` (+184 more)
+- **190 isolated node(s):** `HsHelperApp`, `_MainOverlay`, `_MainOverlayState`, `main`, `build` (+185 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 13`** (2 nodes): `hero_class.dart`, `heroClassFromCardId`
+- **Thin community `Community 14`** (2 nodes): `hero_class.dart`, `heroClassFromCardId`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 14`** (1 nodes): `game_state.g.dart`
+- **Thin community `Community 15`** (1 nodes): `game_state.g.dart`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `package:logger/logger.dart` connect `Community 2` to `Community 0`, `Community 9`, `Community 4`, `Community 8`?**
+- **Why does `package:logger/logger.dart` connect `Community 6` to `Community 0`, `Community 3`, `Community 8`, `Community 9`, `Community 10`?**
   _High betweenness centrality (0.190) - this node is a cross-community bridge._
-- **Why does `../../data/cache_manager.dart` connect `Community 5` to `Community 1`, `Community 2`, `Community 3`, `Community 4`?**
-  _High betweenness centrality (0.111) - this node is a cross-community bridge._
-- **Why does `dart:io` connect `Community 0` to `Community 8`, `Community 9`, `Community 4`?**
-  _High betweenness centrality (0.078) - this node is a cross-community bridge._
+- **Why does `../../data/cache_manager.dart` connect `Community 4` to `Community 10`, `Community 1`, `Community 2`, `Community 3`?**
+  _High betweenness centrality (0.113) - this node is a cross-community bridge._
+- **Why does `dart:io` connect `Community 0` to `Community 8`, `Community 9`, `Community 3`?**
+  _High betweenness centrality (0.077) - this node is a cross-community bridge._
 - **What connects `HsHelperApp`, `_MainOverlay`, `_MainOverlayState` to the rest of the system?**
-  _189 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _190 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.07 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

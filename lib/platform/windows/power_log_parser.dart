@@ -82,6 +82,20 @@ class PowerLogParser {
   // TAG_CHANGE with plain numeric entity
   static final _tagPlain = RegExp(r'TAG_CHANGE Entity=(\d+) tag=(\w+) value=(\S+)');
 
+  // Maps a player NAME to its PlayerID: "PlayerID=1, PlayerName=LuckyOwl#214329".
+  static final _playerName = RegExp(r'PlayerID=(\d+), PlayerName=(.+?)\s*$');
+  // Mana lives on the NAMED player entity, not a numeric/bracket id:
+  // "TAG_CHANGE Entity=LuckyOwl#214329 tag=RESOURCES value=10".
+  static final _namedResource =
+      RegExp(r'TAG_CHANGE Entity=(\S+) tag=(RESOURCES|RESOURCES_USED) value=(\d+)');
+
+  // player name → PlayerID (which equals the bracket player= / _localPlayerId).
+  final Map<String, int> _nameToPlayer = {};
+
+  // player-entity id (e.g. 2, 3) → PlayerID (1, 2). From "Player EntityID=N PlayerID=M".
+  static final _playerEntity = RegExp(r'Player EntityID=(\d+) PlayerID=(\d+)');
+  final Map<int, int> _entityToPlayer = {};
+
   GameState? parseLine(String line) {
     // Game mode
     final gtMatch = _gameType.firstMatch(line);
@@ -95,6 +109,42 @@ class PowerLogParser {
     final ftMatch = _formatType.firstMatch(line);
     if (ftMatch != null) {
       _format = ftMatch.group(1) == 'WILD' ? 1 : 2;
+    }
+
+    // Player name → PlayerID mapping (used to attribute mana, see below).
+    final pn = _playerName.firstMatch(line);
+    if (pn != null) {
+      final pid = int.tryParse(pn.group(1)!);
+      final name = pn.group(2)!.trim();
+      if (pid != null && name.isNotEmpty && name != 'UNKNOWN HUMAN PLAYER') {
+        _nameToPlayer[name] = pid;
+      }
+    }
+
+    // Player-entity id → PlayerID (so CURRENT_PLAYER on entity 2/3 maps to mine).
+    final pe = _playerEntity.firstMatch(line);
+    if (pe != null) {
+      final eid = int.tryParse(pe.group(1)!);
+      final pid = int.tryParse(pe.group(2)!);
+      if (eid != null && pid != null) _entityToPlayer[eid] = pid;
+    }
+
+    // Mana: RESOURCES / RESOURCES_USED are on the NAMED player entity, not a
+    // numeric/bracket id. Resolve the name → PlayerID and only apply MY mana.
+    final nr = _namedResource.firstMatch(line);
+    if (nr != null) {
+      final name = nr.group(1)!;
+      final tag = nr.group(2)!;
+      final value = int.tryParse(nr.group(3)!) ?? 0;
+      final pid = _nameToPlayer[name];
+      if (pid != null && pid == _localPlayerId) {
+        if (tag == 'RESOURCES') {
+          _maxMana = value;
+        } else {
+          _mana = _maxMana - value; // RESOURCES_USED → remaining mana
+        }
+        return _buildState();
+      }
     }
 
     // Hero class per player (from any HERO_ cardId seen).
@@ -170,26 +220,23 @@ class PowerLogParser {
           if (e.zone != value) changed = true;
           e.zone = value;
           break;
-        case 'RESOURCES':
-          _maxMana = int.tryParse(value) ?? _maxMana;
-          changed = true;
-          break;
-        case 'RESOURCES_USED':
-          _mana = _maxMana - (int.tryParse(value) ?? 0);
-          changed = true;
-          break;
+        // RESOURCES/RESOURCES_USED handled above via named player entity —
+        // they never appear on numeric ids, so no case here.
         case 'TURN':
           _turn = int.tryParse(value) ?? _turn;
           break;
         case 'CURRENT_PLAYER':
-          final nowMyTurn = value == '1';
-          // On the transition into my turn, snapshot hero-power usage so we can
-          // tell whether it's been used THIS turn.
-          if (nowMyTurn && !_isPlayerTurn) {
-            _lastHeroPowerUsed = _heroPowerUsedThisGame;
+          // value=1 means THIS player entity is now the active player. Only my
+          // turn if that entity maps to my PlayerID.
+          if (value == '1') {
+            final pid = _entityToPlayer[id];
+            final nowMyTurn = pid != null && pid == _localPlayerId;
+            if (nowMyTurn && !_isPlayerTurn) {
+              _lastHeroPowerUsed = _heroPowerUsedThisGame; // snapshot turn start
+            }
+            _isPlayerTurn = nowMyTurn;
+            changed = true;
           }
-          _isPlayerTurn = nowMyTurn;
-          changed = true;
           break;
         // Board minion stats
         case 'ATK':
@@ -365,5 +412,7 @@ class PowerLogParser {
     _format = null;
     _heroPowerUsedThisGame = 0;
     _lastHeroPowerUsed = 0;
+    _nameToPlayer.clear();
+    _entityToPlayer.clear();
   }
 }

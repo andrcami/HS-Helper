@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'game_state.dart';
-
-part 'recommendation.freezed.dart';
 
 /// The kind of turn action being recommended.
 enum ActionType { playCard, heroPower, attack, endTurn }
@@ -93,13 +90,82 @@ class Recommendation {
       );
 }
 
-@freezed
-class BgsRecommendation with _$BgsRecommendation {
-  const factory BgsRecommendation({
-    required BgsMinion minion,
+/// BGS shop-phase action types.
+enum BgsActionType { buy, sell, roll, upgradeTavern, freeze, heroPower, endTurn }
+
+/// A ranked BGS shop recommendation. Covers all shop actions, not just buying.
+class BgsRecommendation {
+  const BgsRecommendation({
+    required this.type,
+    required this.score,
+    required this.reason,
+    required this.title,
+    this.minion,
+    this.subtitle = '',
+  });
+
+  final BgsActionType type;
+  final double score;
+  final String reason;
+  final String title;
+  final String subtitle;
+
+  /// Present for buy/sell (the minion in question).
+  final BgsMinion? minion;
+
+  factory BgsRecommendation.buy(
+    BgsMinion m, {
     required double score,
     required String reason,
-    @Default(false) bool shouldFreeze,
-    @Default(false) bool shouldUpgradeTavern,
-  }) = _BgsRecommendation;
+  }) =>
+      BgsRecommendation(
+        type: BgsActionType.buy,
+        score: score,
+        reason: reason,
+        title: 'Buy ${m.name}',
+        subtitle: 'T${m.tier} · ${m.attack}/${m.health}'
+            '${m.isGolden ? ' · golden' : ''}',
+        minion: m,
+      );
+
+  factory BgsRecommendation.sell(
+    BgsMinion m, {
+    required double score,
+    required String reason,
+  }) =>
+      BgsRecommendation(
+        type: BgsActionType.sell,
+        score: score,
+        reason: reason,
+        title: 'Sell ${m.name}',
+        subtitle: '${m.attack}/${m.health}',
+        minion: m,
+      );
+
+  factory BgsRecommendation.roll({required double score, required String reason}) =>
+      BgsRecommendation(
+        type: BgsActionType.roll,
+        score: score,
+        reason: reason,
+        title: 'Roll (refresh shop)',
+        subtitle: '1 gold',
+      );
+
+  factory BgsRecommendation.upgrade(
+          {required double score, required String reason, required int cost}) =>
+      BgsRecommendation(
+        type: BgsActionType.upgradeTavern,
+        score: score,
+        reason: reason,
+        title: 'Upgrade Tavern',
+        subtitle: '$cost gold',
+      );
+
+  factory BgsRecommendation.freeze({required double score, required String reason}) =>
+      BgsRecommendation(
+        type: BgsActionType.freeze,
+        score: score,
+        reason: reason,
+        title: 'Freeze shop',
+      );
 }

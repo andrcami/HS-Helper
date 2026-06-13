@@ -13,6 +13,7 @@ import 'data/collection_store.dart';
 import 'data/deck_store.dart';
 import 'data/history_store.dart';
 import 'modes/constructed/recommendation_engine.dart';
+import 'modes/battlegrounds/bgs_engine.dart';
 import 'overlay/dashboard.dart';
 import 'overlay/overlay_window.dart';
 import 'platform/windows/log_watcher.dart';
@@ -97,7 +98,21 @@ final recommendationsProvider = Provider<List<Recommendation>>((ref) {
   if (gameState == null) return [];
   return gameState.when(
     constructed: (state) => ConstructedEngine(cache: cache).recommend(state),
-    battlegrounds: (_) => [],
+    battlegrounds: (_) => [], // BGS uses bgsRecommendationsProvider (different type)
+    idle: () => [],
+  );
+});
+
+/// Battlegrounds shop recommendations. Separate provider — BGS actions use a
+/// different model (BgsRecommendation) than constructed. UI rendering + the BGS
+/// log parser are wired once a real BGS game is captured.
+final bgsRecommendationsProvider = Provider<List<BgsRecommendation>>((ref) {
+  final gameState = ref.watch(gameStateProvider).valueOrNull;
+  final cache = ref.watch(cacheManagerProvider);
+  if (gameState == null) return [];
+  return gameState.when(
+    constructed: (_) => [],
+    battlegrounds: (state) => BgsEngine(cache: cache).recommend(state),
     idle: () => [],
   );
 });
